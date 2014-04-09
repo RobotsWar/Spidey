@@ -48,6 +48,8 @@ http://www.robotis-shop-en.com/shop/step1.php?number=1130
 
 This is not available on the market, you can build your own using the schematics available in this repository (`opencmpp` directory)
 
+See the [OpenCM++ documentation](opencmpp.md).
+
 ### Optionally, WiFi/Xbee module
 
 You can for instance use WiFly:
