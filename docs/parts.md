@@ -23,6 +23,13 @@ This is not yet available on the market
 
 http://www.robotis-shop-en.com/shop/step1.php?number=1126
 
+### Screws & nuts
+
+To bind the "U" parts together, you may need M2 screws & nuts:
+
+http://fr.farnell.com/jsp/search/productdetail.jsp?SKU=1420386
+http://fr.farnell.com/jsp/search/productdetail.jsp?SKU=1419445
+
 ### Ollo tool
 
 You may need an ollo tool to work with ollo rivet
