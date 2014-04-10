@@ -29,6 +29,12 @@ You may need an ollo tool to work with ollo rivet
 
 http://www.robotis-shop-en.com/shop/step1.php?number=1123
 
+### Pulleys
+
+You'll need 12 pulleys, you can buy 3x5=15:
+
+http://robotis-shop-en.com/shop/step1.php?number=1111&b_code=B20140110010004
+
 ## Electronic
 
 ### Main board: OpenCM9.04-B
