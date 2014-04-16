@@ -29,3 +29,7 @@ the next one and so on until you reach 12.
 
 To make things simplier, just keep a trace of the IDs, you can use stickers or write on the
 servos to remember its IDs.
+
+This is where the servos will go:
+
+![IDS](imgs/ids.jpg)

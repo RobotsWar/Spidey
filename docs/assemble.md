@@ -1,6 +1,6 @@
 # Assembling Spidey bot
 
-[All parts](imgs/all-parts.jpg)
+![All parts](imgs/all-parts.jpg)
 
 Let's go on!
 Now you have all your [parts](parts.md) ready, and your servos [numbered from
@@ -13,7 +13,7 @@ avoid changing the software, you have to respect the motors direction and IDs**
 
 First, we're going to bind the Us, to do that, just use M2 screws, or glue:
 
-[Fixed Us](imgs/fixed-us.jpg)
+![Fixed Us](imgs/fixed-us.jpg)
 
 ## 2) 
 
