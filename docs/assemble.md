@@ -50,4 +50,42 @@ second motor:
 
 ![2 motors on the U](imgs/us-2.jpg)
 
+## 3) Bind the body
 
+Now, bind all the 4 parts you've done using the bodies:
+
+![Body](imgs/body.jpg)
+
+## 4) Put the wires
+
+You can now put the wires, for each legs, so it looks like this:
+
+![Wires](imgs/wires.jpg)
+
+## 5) Put the side parts
+
+These parts are a little bit tricky to put, because you have to enclose the
+wire betweet the part and the motor, there is a little gap that allows it:
+
+![Side](imgs/side.jpg)
+
+Do the same for the other side, this time, you'll have to enclose the two
+sides of the wire:
+
+![Side](imgs/side2.jpg)
+
+## 6) Put the legs
+
+You can do exactly the same as before to put the legs on:
+
+![One leg](imgs/one-leg.jpg)
+
+## 7) Put the fixation for OpenCM
+
+If you're using the body fixations for the OpenCM, you can now put the fixations on it:
+
+![Body fixations](imgs/opencm-fixations.jpg)
+
+Then, you can bind your OpenCM to your robot using long rivets:
+
+![Fixed OpenCM](imgs/opencm-fixed.jpg)
