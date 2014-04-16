@@ -6,10 +6,32 @@ To build your own Spidey, you'll need the following parts
 
 You need all the 3D printed parts that are in the `3d` directory, you'll need to print:
 
-* `u.stl`: 8 times
-* `side.stl: 8 times
-* `leg.stl`: 4 times
-* `body.stl`: 2 times
+
+### U (x8)
+
+![U](../3d/imgs/u.png) 
+
+
+### Leg (x')
+
+![Leg](../3d/imgs/leg.png) 
+
+
+### Side (x8)
+
+![Side](../3d/imgs/side.png) 
+
+### Body (x1)
+
+![Body](../3d/imgs/body.png) 
+
+### Body with fixations (x1)
+
+![Body with fixtions](../3d/imgs/body_with_fixations.png) 
+
+### Body to OpenCM (x2)
+
+![Body to OpenCM](../3d/imgs/body_to_opencm.png) 
 
 ## Motors
 
