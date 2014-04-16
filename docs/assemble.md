@@ -1,5 +1,7 @@
 # Assembling Spidey bot
 
+[« back to the documentation](index.md)
+
 ![All parts](imgs/all-parts.jpg)
 
 Let's go on!

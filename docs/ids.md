@@ -1,5 +1,7 @@
 # Numbering servos
 
+[« back to the documentation](index.md)
+
 Once you have [put the firmware](firmware.md) on the OpenCM++, you can now open
 the terminal with:
 

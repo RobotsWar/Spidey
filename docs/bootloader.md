@@ -1,5 +1,7 @@
 # Flash the bootloader on the OpenCM++
 
+[« back to the documentation](index.md)
+
 The OpenCM++ comes with the ROBOTIS official bootloader. It is not handy to use,
 because there is no tool external to its IDE to flash the board.
 

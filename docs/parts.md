@@ -1,5 +1,7 @@
 # Parts list
 
+[« back to the documentation](index.md)
+
 To build your own Spidey, you'll need the following parts
 
 ## 3D parts
