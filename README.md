@@ -1,5 +1,7 @@
 # Spidey
 
+![Spidey](spidey.png)
+
 Open-source spider quadruped DIY robot
 
 This is a demonstration video:
