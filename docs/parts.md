@@ -81,7 +81,10 @@ We recommend using a 2S LiPo, like this:
 
 http://www.hobbyking.com/hobbyking/store/__11902__Turnigy_nano_tech_1300mah_2S_25_50C_Lipo_Pack.html
 
-Note that you'll have to solder a compatible  connector on your OpenCM
+Note that you'll have to solder a compatible  connector on your OpenCM. For instance, this is a soldered
+JST-BEC:
+
+![BEC Soldered](imgs/bec-solder.jpg)
 
 ### Optionally, OpenCM++
 
