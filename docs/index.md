@@ -2,7 +2,7 @@
 
 Here we are! You want to build your own spider robot? This is the place to go.
 
-## Follow-me
+## Building a Spidey
 
 ### Get the parts
 
