@@ -12,7 +12,7 @@ You need all the 3D printed parts that are in the `3d` directory, you'll need to
 ![U](../3d/imgs/u.png) 
 
 
-### Leg (x')
+### Leg (x4)
 
 ![Leg](../3d/imgs/leg.png) 
 
