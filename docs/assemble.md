@@ -89,3 +89,9 @@ If you're using the body fixations for the OpenCM, you can now put the fixations
 Then, you can bind your OpenCM to your robot using long rivets:
 
 ![Fixed OpenCM](imgs/opencm-fixed.jpg)
+
+## Ready!
+
+Your robot is now almost ready!
+
+![Robot](imgs/robot.jpg)
