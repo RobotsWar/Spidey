@@ -3,23 +3,20 @@
 [« back to the documentation](index.md)
 
 The OpenCM++ comes with the ROBOTIS official bootloader. It is not handy to use,
-because there is no tool external to its IDE to flash the board.
+because there is no tool external to its IDE to flash the board. Moreover, it is not open
+source and it appeared to be unstable while flashing large programs.
 
-This is why we are using the maple bootloader, you can find the variant for the OpenCM
-in this repository, under `bootloader/` directory. The sources of the bootloader are
-also available [here](https://github.com/Gregwar/maple-bootloader-robotis).
+This is why we are using the maple bootloader, which is compatible with the `dfu-util` tool.
 
-To flash the bootloader, you'll have to wire a FTDI (serial adapter) to the Serial1 port
-of your board. This is the most annoying part of this, but it's not that hard. You can use
-an Arduino board, a FTDI breakout or anything that can be used as a serial device.
+To put this bootloader on the board, you'll need to run a special sketch that you can find in
+the `bootloader/` directory of this repository. 
 
-Now, boot the board holding the BOOT0 pin at 3.3V (this can be done by wiring a little cable),
-now release BOOT0.
+**WARNING: When you'll run this sketch, the default bootloader will be erased and replaced with the maple
+one. This will make OpenCM IDE unusable.**.
 
-You can then run the following command:
+Wait until your board led pin blinks, and the new bootloader should be loaded.
 
-```
-python stm32loader.py -p /dev/ttyUSB -evw bootloader.bin
-```
+## See also
 
-Your board is now on the Maple bootloader!
+[Fork of the maple bootloader for robotis boards](https://github.com/Gregwar/maple-bootloader-robotis).
+
