@@ -8,9 +8,9 @@ You'll find gerber, schematics, board and components list in the `board/` direct
 
 ## Board
 
-[OpenCM++](imgs/opencmpp-board.jpg)
+![OpenCM++](imgs/opencmpp-board.jpg)
 
 ## Board (with components)
 
-[OpenCM++ with components](imgs/opencmpp-mounted.jpg)
+![OpenCM++ with components](imgs/opencmpp-mounted.jpg)
 
