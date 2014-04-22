@@ -35,3 +35,17 @@ servos to remember its IDs.
 This is where the servos will go:
 
 ![IDS](imgs/ids.jpg)
+
+If you did a mistake, you can change the number of a servo by specifying a second argument:
+
+```
+dxl_configure <newId> <oldId>
+```
+
+Thus:
+
+```
+dxl_configure 3 2
+```
+
+Will change the id of the servo 2 to 3.
