@@ -7,7 +7,9 @@ Open-source spider quadruped DIY robot
 This is a demonstration video:
 https://www.youtube.com/watch?v=Mj_5xJRZnC0
 
-[Go to the documentation »](docs/index.md)
+## Make your own!
+
+[Go to the documentation to begin! »](docs/index.md)
 
 ## License
 
