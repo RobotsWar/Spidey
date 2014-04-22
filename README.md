@@ -1,11 +1,8 @@
-# Spidey
+# Open-source DIY quadruped robot
 
-![Spidey](spidey.png)
+![Spidey](docs/img/spidey.jpg)
 
-Open-source spider quadruped DIY robot
-
-This is a demonstration video:
-https://www.youtube.com/watch?v=Mj_5xJRZnC0
+Video: https://www.youtube.com/watch?v=Mj_5xJRZnC0
 
 ## Make your own!
 
