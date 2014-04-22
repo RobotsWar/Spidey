@@ -8,6 +8,8 @@ source and it appeared to be unstable while flashing large programs.
 
 This is why we are using the maple bootloader, which is compatible with the `dfu-util` tool.
 
+First, get the official [OpenCM IDE from Robotis](http://support.robotis.com/en/software/robotis_opencm.htm).
+
 To put this bootloader on the board, you'll need to run a special sketch that you can find in
 the `bootloader/` directory of this repository. 
 
