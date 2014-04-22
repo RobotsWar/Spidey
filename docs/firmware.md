@@ -4,6 +4,15 @@
 
 ## Putting the firmware on the robot
 
+### Linux
+
+You need to install the following packets:
+
+```
+$ sudo aptitude install build-essential git-core wget screen dfu-util \
+                        openocd python python-serial
+```
+
 First, be sure you have the [correct bootloader](bootloader.md) on your board.
 
 To put the firmware on the robot, simply cd into the `firmware/` repository and
@@ -15,6 +24,12 @@ sudo ./install.sh
 
 This should reset the board and then output some progress bar, your firmware is now
 on the robot!
+
+### Windows
+
+You'll first need to install python, pyserial and the drivers for the board.
+
+On Windows, you can try running the `install.bat` script.
 
 ## The terminal
 
