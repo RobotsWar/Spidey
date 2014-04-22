@@ -1,6 +1,6 @@
 # Open-source DIY quadruped robot
 
-![Spidey](docs/img/spidey.jpg)
+![Spidey](docs/imgs/spidey.jpg)
 
 Video: https://www.youtube.com/watch?v=Mj_5xJRZnC0
 
