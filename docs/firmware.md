@@ -9,17 +9,14 @@
 You need to install the following packets:
 
 ```
-$ sudo aptitude install build-essential git-core wget screen dfu-util \
-                        openocd python python-serial
+$ apt-get install python python-serial
 ```
-
-First, be sure you have the [correct bootloader](bootloader.md) on your board.
 
 To put the firmware on the robot, simply cd into the `firmware/` repository and
 run the installation script:
 
 ```
-sudo ./install.sh
+sudo python robotis-loader.py /dev/ttyACM0 spidey.bin
 ```
 
 This should reset the board and then output some progress bar, your firmware is now
@@ -27,9 +24,17 @@ on the robot!
 
 ### Windows
 
-You'll first need to install python, pyserial and the drivers for the board.
+You'll need python and pyserial. Then, be sure to have the drivers. You can install
+simply OpenCM IDE for that.
 
-On Windows, you can try running the `install.bat` script.
+Then, run:
+
+```
+sudo python robotis-loader.py COM4 spidey.bin
+```
+
+Replace COM4 with the right serial port (you can see it in OpenCM ide or in the devices
+manager).
 
 ## The terminal
 
