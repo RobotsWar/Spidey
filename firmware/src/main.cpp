@@ -125,7 +125,7 @@ float l3[4];
  */
 void setup()
 {
-    RC.begin(9600);
+    RC.begin(921600);
 
     back = (initialOrientation != 0);
     if (back) smoothBack = 1;
