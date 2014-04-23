@@ -197,7 +197,7 @@ void tick()
         float yOrder = step.getMod(legPhase)*dy;
 
         // Computing the order in the referencial of the leg
-        float bodyAngle = i*M_PI/2.0 - (M_PI/4.0);
+        float bodyAngle = -(i*M_PI/2.0 - (M_PI/4.0))*smoothBack;
         if (group) {
             bodyAngle -= DEG2RAD(crab);
         } else {
@@ -209,8 +209,8 @@ void tick()
         float enableRise = (abs(dx)>0.5 || abs(dy)>0.5 || abs(turn)>5) ? 1 : 0;
 
         // This is the x,y,z order in the referencial of the leg
-        x = r - (vx * smoothBack);
-        y = - (vy * smoothBack);
+        x = r + vx;
+        y = vy;
         z = h + rise.getMod(legPhase)*alt*enableRise;
     
         // Computing inverse kinematics
