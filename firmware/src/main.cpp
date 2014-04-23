@@ -7,7 +7,7 @@
 #include <dxl.h>
 #include <function.h>
 #include <commands.h>
-#include <wifly.h>
+#include <rc.h>
 #include "kinematic.h"
 #include "config.h"
 
@@ -125,7 +125,7 @@ float l3[4];
  */
 void setup()
 {
-    WiFly.begin(9600);
+    RC.begin(9600);
 
     back = (initialOrientation != 0);
     if (back) smoothBack = 1;
