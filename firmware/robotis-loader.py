@@ -1,5 +1,16 @@
 #!/usr/bin/python
 
+# This script sends a program on a robotis board (OpenCM9.04 or CM900)
+# using the robotis bootloader (used in OpenCM IDE)
+# 
+# Usage:
+# python robotis-loader.py <serial port> <binary>
+#
+# Example:
+# python robotis-loader.py /dev/ttyACM0 firmware.bin
+#
+# https://github.com/Gregwar/robotis-loader
+
 import serial, sys, os, time
 
 print('~~ Robotis loader ~~')
