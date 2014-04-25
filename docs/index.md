@@ -18,6 +18,9 @@ Then, you'll have to [number your servos from 1 to 12](ids.md).
 
 You can then assemble your robot, follow the [assemble tutorial](assemble.md).
 
-### 4) Program
+### 4) Hacking & tweaking
+
+If you want to get more information about how the firmware works, have a look
+to the [hacking](hacking.md).
 
 ### 5) Enjoy!
