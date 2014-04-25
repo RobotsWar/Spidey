@@ -1,5 +1,7 @@
 # Parts list
 
+[« back to the documentation](index.md)
+
 To build your own Spidey, you'll need the following parts
 
 ## 3D parts
@@ -23,6 +25,8 @@ You need all the 3D printed parts that are in the `3d` directory, you'll need to
 
 ### Body (x1)
 
+You can print this 2 times, or 1 times + 1 body with fixations (see below)
+
 ![Body](../3d/imgs/body.png) 
 
 ### Body with fixations (x1)
@@ -30,6 +34,9 @@ You need all the 3D printed parts that are in the `3d` directory, you'll need to
 ![Body with fixtions](../3d/imgs/body_with_fixations.png) 
 
 ### Body to OpenCM (x2)
+
+If you print the body with fixations, you can also print that to
+bind your OpenCM to the body:
 
 ![Body to OpenCM](../3d/imgs/body_to_opencm.png) 
 
@@ -72,12 +79,14 @@ http://www.robotis-shop-en.com/shop/step1.php?number=1008
 
 ## Battery
 
-You can use a 2S LiPo, or 2 3.7V Li-ion batteries.
+We recommend using a 2S LiPo, like this:
 
-The ones from Robotis are recommended because it comes with the older/charger which is easy to use:
+http://www.hobbyking.com/hobbyking/store/__11902__Turnigy_nano_tech_1300mah_2S_25_50C_Lipo_Pack.html
 
-http://www.robotis-shop-en.com/shop/step1.php?number=1129
-http://www.robotis-shop-en.com/shop/step1.php?number=1130
+Note that you'll have to solder a compatible  connector on your OpenCM. For instance, this is a soldered
+JST-BEC:
+
+![BEC Soldered](imgs/bec-solder.jpg)
 
 ### Optionally, OpenCM++
 
