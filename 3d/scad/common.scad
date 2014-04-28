@@ -1,8 +1,33 @@
 // Width of plastic
 Width = 2.2;
 
+// Color of the parts
+PartsColor = [0.8, 0.8, 0.8];
+
 // Diameter of plastic ollo holes
 OlloHoles = 4.3;
+
+// Width of Ollo "real" plastic
+OlloWidth = 3;
+
+// Motor dimensions
+MotorWidth = 24;
+MotorHeight = 36;
+MotorDepth = 24;
+MotorArmOffset = 9;
+
+// U dimensions
+UHeight = 10;
+URadius = 8;
+UWidth = 30+Width/2;
+UTotalHeight = UHeight+URadius;
+
+// Side dimensions
+SideSize = 38 + 0;
+SideHolesToBorder = 5;
+
+// Size of the body
+BodySize = 18;
 
 // Defining the resolution
 $fn=35;
@@ -10,7 +35,8 @@ $fn=35;
 // Do an Ollo hole on the part
 module olloHole(depth=Width)
 {
-    cylinder(depth, OlloHoles/2, OlloHoles/2);
+    translate([0,0,-0.1])
+      cylinder(depth+0.2, OlloHoles/2, OlloHoles/2);
 }
 
 // Do 3 ollo holes

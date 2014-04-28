@@ -1,17 +1,21 @@
 include <common.scad>;
 
-BodySize = 18 + 0;
+module body() {
+    module bodyPart() {
+        difference() {
+            rounded(20, BodySize*2, Width, 5, center=true);
+            for (y=[BodySize-5, -BodySize+5]) {
+                translate([0, y, 0])
+                    threeOllo();
+            }
+        }
+    }
 
-module bodyPart() {
-	difference() {
-		rounded(20, BodySize*2, Width, 5, center=true);
-		for (y=[BodySize-5, -BodySize+5]) {
-			translate([0, y, 0])
-				threeOllo();
-		}
-	}
+    color(PartsColor) {
+        bodyPart();
+        rotate([0,0,90])
+            bodyPart();
+    }
 }
 
-bodyPart();
-rotate([0,0,90])
-	bodyPart();
+body();
