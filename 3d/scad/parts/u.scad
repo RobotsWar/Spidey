@@ -33,12 +33,25 @@ module u() {
         }
     }
 
+	 module UScrews() {
+		for (x=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
+			for (y=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
+			  rotate([270,0,0])
+			  translate([x,y,0])
+			  cylinder(d=UScrewsDiameter, h=100);
+			}
+      }
+	 }
+
     color(PartsColor) {
-        translate([0,0,-15-Width]) {
+		  difference() {
+          translate([0,0,-15-Width]) {
             USide();
             mirror([0,0,1]) translate([0,0,-2*Width-30])  
                 USide();
-        }
+          }
+			 UScrews();
+		  }
     }
 }
 

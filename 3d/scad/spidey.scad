@@ -5,15 +5,18 @@ use <parts/u.scad>;
 use <parts/side.scad>;
 use <parts/leg.scad>;
 
+/**
+ * Angles of the 4 motors
+ */
 angles = [
-	[0, -30, 110],
-	[0, -30, 110],
-	[0, -30, 110],
-	[0, -30, 110]
+    [0, -30, 110],
+    [0, -30, 110],
+    [0, -30, 110],
+    [0, -30, 110]
 ];
 
-module firstArticulation(alpha=0) {
-    translate([0,24,MotorDepth/2]) {
+module spideyJoin1(alpha=0) {
+    translate([0, 4*OlloSpacing, MotorDepth/2]) {
         motorArm();
         rotate([0,0,alpha]) {
             children();
@@ -21,60 +24,60 @@ module firstArticulation(alpha=0) {
     }
 }
 
-module secondArticulation(alpha=0) {
+module spideyJoin2(alpha=0) {
     translate([0,0,0]) {
         u();
         translate([0,UTotalHeight*2,0]) {
             rotate([0,90,180]) {
                 u();
                 rotate([0,0,alpha]) {
-					  motorArm();
-                  children();
+                    motorArm();
+                    children();
                 }
             }
         }
     }
 }
 
-module thirdArticluation(alpha=0) {
-  for (side=[MotorWidth/2+Width,-MotorWidth/2]) {
-    translate([side,0,0]) {
-      rotate([180,90,0]) {
-        side();
-      }
+module spideyJoin3(alpha=0) {
+    for (side=[MotorWidth/2+Width,-MotorWidth/2]) {
+        translate([side,0,0]) {
+            rotate([180,90,0]) {
+                side();
+            }
+        }
     }
-  }
-  translate([0,-2*(SideSize-SideHolesToBorder),0]) {
-	 rotate([0,0,180]) {
-      motorArm();
-	   rotate([90,90,alpha]) {
-	     leg();
-      }
-    }
-  }
-}
-
-module assemblyLeg(a, b, c) {
-    firstArticulation(a) {
-        secondArticulation(b) {
-            thirdArticluation(c);
+    translate([0,-2*(SideSize-SideHolesToBorder),0]) {
+        rotate([0,0,180]) {
+            motorArm();
+            rotate([90,90,alpha]) {
+                leg();
+            }
         }
     }
 }
 
-module spidey(angles) {
-body();
-translate([0,0,MotorDepth+Width]) {
+module spideyLeg(a, b, c) {
+    spideyJoin1(a) {
+        spideyJoin2(b) {
+            spideyJoin3(c);
+        }
+    }
+}
+
+module spidey(angles = [[0,0,0], [0,0,0], [0,0,0], [0,0,0]]) {
     body();
-}
+    translate([0,0,MotorDepth+Width]) {
+        body();
+    }
 
-for (i=[0:3]) {
-    rotate([0,0,i*90]) {
-        translate([0,BodySize-5,Width]) {
-            assemblyLeg(angles[i][0], angles[i][1], angles[i][2]);
+    for (i=[0:3]) {
+        rotate([0,0,i*90]) {
+            translate([0,BodySize-5,Width]) {
+                spideyLeg(angles[i][0], angles[i][1], angles[i][2]);
+            }
         }
     }
-}
 }
 
 spidey(angles);

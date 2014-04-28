@@ -10,16 +10,19 @@ OlloHoles = 4.3;
 // Width of Ollo "real" plastic
 OlloWidth = 3;
 
+// Distance between two ollo holes
+OlloSpacing = 6;
+
 // Sizes of the parts of the leg
-LegSizeA = 50;
+LegSizeA = 65;
 LegSizeB = 20;
 LegSizeC = 22;
 
 // Width of the bottom part of the leg
-LegSizeBottom = 8;
+LegSizeBottom = 10;
 
 // Size of the "top" part of the legs, in mm
-LegSizeTop = 22;
+LegSizeTop = 30;
 
 // Motor dimensions
 MotorWidth = 24;
@@ -32,6 +35,8 @@ UHeight = 10;
 URadius = 8;
 UWidth = 30+Width/2;
 UTotalHeight = UHeight+URadius;
+UScrewsSpacing = 10;
+UScrewsDiameter= 2.6;
 
 // Side dimensions
 SideSize = 38 + 0;
