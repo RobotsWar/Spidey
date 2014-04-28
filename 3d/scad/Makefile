@@ -12,9 +12,9 @@ all: $(TARGETS)
 build_dir:
 	@mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/%.stl: %.scad build_dir
+$(BUILD_DIR)/%.stl: parts/%.scad build_dir
 	@echo "Building $@..."
-	@openscad $< -o $@ 2>/dev/null
+	@openscad $< -o $@ 
 
 clean:
 	rm -rf $(BUILD_DIR)

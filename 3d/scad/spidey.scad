@@ -1,9 +1,9 @@
 include <common.scad>;
 use <models/motor_arm.scad>;
-use <body.scad>;
-use <u.scad>;
-use <side.scad>;
-use <leg.scad>;
+use <parts/body.scad>;
+use <parts/u.scad>;
+use <parts/side.scad>;
+use <parts/leg.scad>;
 
 angles = [
 	[0, -30, 110],

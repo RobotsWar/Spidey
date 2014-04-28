@@ -10,6 +10,17 @@ OlloHoles = 4.3;
 // Width of Ollo "real" plastic
 OlloWidth = 3;
 
+// Sizes of the parts of the leg
+LegSizeA = 50;
+LegSizeB = 20;
+LegSizeC = 22;
+
+// Width of the bottom part of the leg
+LegSizeBottom = 8;
+
+// Size of the "top" part of the legs, in mm
+LegSizeTop = 22;
+
 // Motor dimensions
 MotorWidth = 24;
 MotorHeight = 36;

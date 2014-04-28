@@ -1,15 +1,4 @@
-include <common.scad>;
-
-// Sizes of the part of the leg
-LegSizeA = 50;
-LegSizeB = 20;
-LegSizeC = 22;
-
-// Width of the bottom part of the leg
-LegSizeBottom = 8;
-
-// Size of the "top" part of the legs, in mm
-LegSizeTop = 22;
+include <../common.scad>;
 
 module leg()
 {
@@ -61,8 +50,9 @@ module leg()
                 cube([LegSizeBottom+Width*2, 20, Width], center=true);
 
             biais();
-            mirror([1,0,0])
+            mirror([1,0,0]) {
                 biais();
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-include <common.scad>;
+include <../common.scad>;
 
 module side() {
     translate([0,SideSize-SideHolesToBorder,0]) {
