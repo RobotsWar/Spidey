@@ -17,8 +17,16 @@ $(BUILD_DIR)/%.stl: parts/%.scad build_dir
 	@openscad $< -o $@ 
 
 view:
-	@openscad spidey.scad -o spidey.png --imgsize=1024,768
+	@openscad spidey.scad -o spidey.png --imgsize=1024,768 --camera=400,200,300,0,0,0 
 	@eog spidey.png 
 
+csg:
+	@openscad spidey.scad -o spidey.csg
+
+movie: csg
+	@rm -rf movie-out
+	@mkdir -p movie-out
+	python movie.py
+
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -rf $(BUILD_DIR) *.csg movie-out
