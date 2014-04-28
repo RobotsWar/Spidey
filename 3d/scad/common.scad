@@ -58,7 +58,7 @@ module olloHole(depth=Width)
 // Do 3 ollo holes
 module threeOllo(depth=Width)
 {
-  for (xy=[[-6,0],[0,0],[6,0]]) {
+  for (xy=[[-OlloSpacing,0],[0,0],[OlloSpacing,0]]) {
     translate([xy[0], xy[1], 0])
     olloHole(depth);
   }

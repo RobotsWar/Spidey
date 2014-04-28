@@ -6,7 +6,7 @@ module side() {
             difference() {
                 rounded(20, SideSize*2, Width, 5, true);
                 for (y=[SideSize-SideHolesToBorder,	 -SideSize+SideHolesToBorder,
-                        SideSize-SideHolesToBorder-18, -SideSize+SideHolesToBorder+18]) {
+                        SideSize-SideHolesToBorder-3*OlloSpacing, -SideSize+SideHolesToBorder+3*OlloSpacing]) {
                     translate([0, y, 0])
                         threeOllo();
                 }

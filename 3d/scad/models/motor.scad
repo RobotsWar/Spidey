@@ -22,7 +22,7 @@ module motor() {
 		translate([side,9,MotorDepth/2]) {
 		  rotate([0,90,0]) {
 		   threeOllo();
-			translate([0,-18,0])
+			translate([0,-3*OlloSpacing,0])
 			  threeOllo();
 		  }
 		}
