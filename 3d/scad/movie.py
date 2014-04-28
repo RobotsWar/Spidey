@@ -25,4 +25,4 @@ for alpha in range(0,360):
     frameForAngle(deg2rad(alpha), 'movie-out/%05d.png' % alpha)
 
 print('Encoding the video')
-runProcess('ffmpeg -i movie-out/%05d.png -vcodec mpeg4 movie-out/movie.mp4')
+runProcess('ffmpeg -i movie-out/%05d.png -b 8M -vcodec mpeg4 movie-out/movie.mp4')
