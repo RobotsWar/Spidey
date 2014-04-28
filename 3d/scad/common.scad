@@ -2,7 +2,7 @@
 Width = 2.2;
 
 // Color of the parts
-PartsColor = [0.8, 0.8, 0.8, 0.4];
+PartsColor = [0.8, 0.8, 0.8];
 
 // Diameter of plastic ollo holes
 OlloHoles = 4.3;
