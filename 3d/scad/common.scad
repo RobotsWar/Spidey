@@ -14,9 +14,12 @@ OlloWidth = 3;
 OlloSpacing = 6;
 
 // Sizes of the parts of the leg
-LegSizeA = 65;
-LegSizeB = 20;
-LegSizeC = 22;
+
+// Ratio of leg parts
+LegSize = 100;
+LegSizeA = (0.60)*LegSize;
+LegSizeB = (0.20)*LegSize;
+LegSizeC = (0.20)*LegSize;
 
 // Width of the bottom part of the leg
 LegSizeBottom = 10;
@@ -31,7 +34,7 @@ MotorDepth = 24;
 MotorArmOffset = 9;
 
 // U dimensions
-UHeight = 10;
+UHeight = 14;
 URadius = 8;
 UWidth = 30+Width/2;
 UTotalHeight = UHeight+URadius;
