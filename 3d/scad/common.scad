@@ -1,20 +1,14 @@
-// Width of plastic
-Width = 2.2;
-
-// Color of the parts
-PartsColor = [0.8, 0.8, 0.8];
-
-// Diameter of plastic ollo holes
-OlloHoles = 4.3;
-
-// Width of Ollo "real" plastic
-OlloWidth = 3;
-
-// Distance between two ollo holes
-OlloSpacing = 6;
-
 // Number of legs
 Legs = 4;
+
+// Number of motors per leg (2 or 3)
+MotorsPerLeg = 2;
+
+// Static L3 angle (used only if 2 motors per leg)
+L3Angle = 0;
+
+// Color of the parts, for rendering
+PartsColor = [0.8, 0.8, 0.8];
 
 // Sizes of the parts of the leg
 // Ratio of leg parts
@@ -49,6 +43,18 @@ SideHolesToBorder = 5;
 
 // Size of the body
 BodySize = 20;
+
+// Diameter of plastic ollo holes
+OlloHoles = 4.3;
+
+// Width of Ollo "real" plastic
+OlloWidth = 3;
+
+// Distance between two ollo holes
+OlloSpacing = 6;
+
+// Width of plastic
+Width = 2.2;
 
 // Defining the resolution
 $fn=35;

@@ -37,6 +37,7 @@ module spideyJoin2(alpha=0) {
 }
 
 module spideyJoin3(alpha=0) {
+	if (MotorsPerLeg == 3) {
     for (side=[MotorWidth/2+Width,-MotorWidth/2]) {
         translate([side,0,0]) {
             rotate([180,90,0]) {
@@ -52,6 +53,13 @@ module spideyJoin3(alpha=0) {
             }
         }
     }
+	}
+	if (MotorsPerLeg == 2) {
+		translate([0,-(24),0])
+		rotate([180,0,0])
+		rotate([180,90,L3Angle])
+		leg();
+	}
 }
 
 module spideyLeg(a, b, c) {
