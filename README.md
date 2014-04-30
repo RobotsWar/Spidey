@@ -1,4 +1,4 @@
-# Open-source DIY quadruped robot
+# Open-source DIY parametric robot
 
 ![Spidey](docs/imgs/spidey.jpg)
 
