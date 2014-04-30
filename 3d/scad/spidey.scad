@@ -62,7 +62,7 @@ module spideyLeg(a, b, c) {
     }
 }
 
-module spidey(angles = [[0,0,0], [0,0,0], [0,0,0], [0,0,0]]) {
+module spidey(angles = [0,0,0]) {
     body();
     translate([0,0,MotorDepth+Width]) {
         body();
