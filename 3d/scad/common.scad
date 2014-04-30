@@ -1,11 +1,14 @@
 // Number of legs
 Legs = 4;
 
+// Size of the body
+BodySize = 20;
+
 // Number of motors per leg (2 or 3)
-MotorsPerLeg = 2;
+MotorsPerLeg = 3;
 
 // Static L3 angle (used only if 2 motors per leg)
-L3Angle = 0;
+L3Angle = -30;
 
 // Color of the parts, for rendering
 PartsColor = [0.8, 0.8, 0.8];
@@ -41,9 +44,6 @@ UScrewsDiameter= 2.6;
 SideSize = 38;
 SideHolesToBorder = 5;
 
-// Size of the body
-BodySize = 20;
-
 // Diameter of plastic ollo holes
 OlloHoles = 4.3;
 
@@ -53,7 +53,7 @@ OlloWidth = 3;
 // Distance between two ollo holes
 OlloSpacing = 6;
 
-// Width of plastic
+// Width of parts (2.2 is good for Ollo rivets)
 Width = 2.2;
 
 // Defining the resolution

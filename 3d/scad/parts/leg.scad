@@ -8,30 +8,29 @@ module leg()
     module legSide()
     {
         difference() {
-				union() {
-            translate([0,0,LegSizeA/2])
-                rotate([0,90,0]) {
-					  cube([LegSizeA, 20, Width], center=true
-);
-					  if (MotorsPerLeg == 2) {
-						translate([15-LegSizeA/2, 10, -Width/2])
-						  rotate([0,0,+L3Angle])
-						  rounded(25,10,Width, center=true);
-					  }
-					}
-				}
-              translate([-Width, 0, LegSizeA-15]) {
+            union() {
+                translate([0,0,LegSizeA/2])
+                    rotate([0,90,0]) {
+                        cube([LegSizeA, 20, Width], center=true);
+                        if (MotorsPerLeg == 2) {
+                            translate([15-LegSizeA/2, 10, -Width/2])
+                                rotate([0,0,+L3Angle])
+                                rounded(25,10,Width, center=true);
+                        }
+                    }
+            }
+            translate([-Width, 0, LegSizeA-15]) {
                 rotate([90,0,90]) {
-						if (MotorsPerLeg == 3) {
-                   	servoArm(2*Width);
-						}
-					}
-						if (MotorsPerLeg == 2) {
-							translate([0,10,0])
-							rotate([90,90-L3Angle,90])
-							threeOllo(2*Width);
-						}
-              }
+                    if (MotorsPerLeg == 3) {
+                        servoArm(2*Width);
+                    }
+                }
+                if (MotorsPerLeg == 2) {
+                    translate([0,10,0])
+                        rotate([90,90-L3Angle,90])
+                        threeOllo(2*Width);
+                }
+            }
         }
         translate([-Width/2,0,LegSizeA]) {
             rotate([90,0,90])
@@ -78,4 +77,3 @@ module leg()
 }
 
 leg();
-
