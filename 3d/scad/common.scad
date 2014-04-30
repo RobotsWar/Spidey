@@ -8,7 +8,7 @@ BodySize = 20;
 MotorsPerLeg = 3;
 
 // Static L3 angle (used only if 2 motors per leg)
-L3Angle = -30;
+L3Angle = -5;
 
 // Color of the parts, for rendering
 PartsColor = [0.8, 0.8, 0.8];

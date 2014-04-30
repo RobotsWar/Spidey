@@ -8,9 +8,7 @@ use <parts/leg.scad>;
 /**
  * Angles 
  */
-angles = [
-    [0, -30, 110]
-];
+angles = [0, -30, 110];
 
 module spideyJoin1(alpha=0) {
     translate([0, 4*OlloSpacing, MotorDepth/2]) {
