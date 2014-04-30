@@ -3,20 +3,20 @@ include <../common.scad>;
 module body() {
     module bodyPart() {
         difference() {
-            rounded(20, BodySize*2, Width, 5, center=true);
-            for (y=[BodySize-5, -BodySize+5]) {
-                translate([0, y, 0]) {
-                    threeOllo();
-                }
-            }
+			   translate([-10,0,0])
+              rounded(20, BodySize, Width, 5, center);
+             translate([0, BodySize-5, 0]) {
+                 threeOllo();
+             }
         }
     }
 
     color(PartsColor) {
-        bodyPart();
-        rotate([0,0,90]) {
-            bodyPart();
-        }
+ 	     cylinder(d=BodySize, h=Width);
+		  for (leg=[0:Legs]) {
+			  rotate([0,0,360*leg/Legs])
+           bodyPart();
+		  }
     }
 }
 

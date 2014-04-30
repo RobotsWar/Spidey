@@ -13,8 +13,10 @@ OlloWidth = 3;
 // Distance between two ollo holes
 OlloSpacing = 6;
 
-// Sizes of the parts of the leg
+// Number of legs
+Legs = 4;
 
+// Sizes of the parts of the leg
 // Ratio of leg parts
 LegSize = 100;
 LegSizeA = (0.60)*LegSize;
@@ -42,11 +44,11 @@ UScrewsSpacing = 10;
 UScrewsDiameter= 2.6;
 
 // Side dimensions
-SideSize = 38 + 0;
+SideSize = 38;
 SideHolesToBorder = 5;
 
 // Size of the body
-BodySize = 18;
+BodySize = 20;
 
 // Defining the resolution
 $fn=35;

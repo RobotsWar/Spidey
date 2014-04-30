@@ -6,12 +6,9 @@ use <parts/side.scad>;
 use <parts/leg.scad>;
 
 /**
- * Angles of the 4 motors
+ * Angles 
  */
 angles = [
-    [0, -30, 110],
-    [0, -30, 110],
-    [0, -30, 110],
     [0, -30, 110]
 ];
 
@@ -71,10 +68,10 @@ module spidey(angles = [[0,0,0], [0,0,0], [0,0,0], [0,0,0]]) {
         body();
     }
 
-    for (i=[0:3]) {
-        rotate([0,0,i*90]) {
+    for (leg=[0:Legs]) {
+        rotate([0,0,leg*360/Legs]) {
             translate([0,BodySize-5,Width]) {
-                spideyLeg(angles[i][0], angles[i][1], angles[i][2]);
+                spideyLeg(angles[0], angles[1], angles[2]);
             }
         }
     }
