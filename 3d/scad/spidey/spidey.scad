@@ -1,14 +1,15 @@
 include <config.scad>;
 include <../models/ollo.scad>;
 use <../models/motor_arm.scad>;
-use <parts.scad>
+use <parts.scad>;
+use <joins.scad>;
 
 /**
  * Angles 
  */
 angles = [0, -30, 110];
 
-module spideyJoin1(alpha=0) {
+module motor_on_body(alpha=0) {
     translate([0, 4*OlloSpacing, MotorDepth/2]) {
         motorArm();
         rotate([0,0,alpha]) {
@@ -17,64 +18,35 @@ module spideyJoin1(alpha=0) {
     }
 }
 
-module spideyJoin2(alpha=0) {
-   translate([0,0,0]) {
-        spidey_u();
-        translate([0,UTotalHeight*2,0]) {
-            rotate([0,90,180]) {
-                spidey_u();
-                rotate([0,0,alpha]) {
-                    motorArm();
-                    children();
-                }
-            }
-        }
-    }
+module arm_leg() {
+  rotate([90,90,0]) 
+  spidey_leg();
 }
 
-module spideyJoin3(alpha=0) {
-	if (MotorsPerLeg == 3) {
-    for (side=[MotorWidth/2+Width,-MotorWidth/2]) {
-        translate([side,0,0]) {
-            rotate([180,90,0]) {
-                spidey_side();
-            }
-        }
-    }
-    translate([0,-2*(SideSize-SideHolesToBorder),0]) {
-        rotate([0,0,180]) {
-            motorArm();
-				rotate([0,0,alpha])
-				children();
-        }
-    }
-	}
-	if (MotorsPerLeg == 2) {
-		children();
-	}
-}
-
-module spideyJoin4() {
-	if (MotorsPerLeg == 3) {
- 		rotate([90,90,0]) 
-		spidey_leg();
-	}
-	if (MotorsPerLeg == 2) {
-		translate([0,-(24),0])
-		rotate([180,0,0])
-		rotate([180,90,L3Angle])
-		spidey_leg();
-	}
+module bottom_leg() {
+  translate([0,-(24),0])
+  rotate([180,0,0])
+  rotate([180,90,L3Angle])
+  spidey_leg();
 }
 
 module spideyLeg(a, b, c) {
-    spideyJoin1(a) {
-        spideyJoin2(b) {
-            spideyJoin3(c) {
-					spideyJoin4();
+	if (MotorsPerLeg == 3) {
+    motor_on_body(a) {
+        spidey_double_u(b) {
+            spidey_side_to_side(c) {
+					arm_leg();
 				}
         }
-    }
+    }	
+	}
+	if (MotorsPerLeg == 2) {
+    motor_on_body(a) {
+        spidey_double_u(b) {
+				bottom_leg();
+        }
+    }	
+	}
 }
 
 module spidey(angles = [0,0,0]) {
