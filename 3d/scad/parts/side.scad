@@ -2,11 +2,11 @@ include <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
 module side(size=40, holesToBorder=5, width=2.2, print=false) {
-    echo("[PART] side");
     if (print) {
         translate([0,-size+holesToBorder,0])
             side(size,holesToBorder,width,false);
     } else {
+        echo("[PART] side");
         translate([0,size-holesToBorder,0]) {
             difference() {
                 rounded(20, size*2, width, 5, true);

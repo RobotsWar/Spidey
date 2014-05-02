@@ -4,7 +4,6 @@ use <../util/rounded.scad>;
 module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
         sizeTop=15, motorsPerLeg=3, fixationAngle=0, width=2.2, print=false)
 {
-    echo("[PART] leg");
     xOffset = (motorsPerLeg == 2) ? -10 : 0;
     spacing = (motorsPerLeg == 2) ? 24 : 30;
 
@@ -58,6 +57,7 @@ module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
             leg(sizeA, sizeB, sizeC, sizeBottom,
                     sizeTop, motorsPerLeg, fixationAngle, width, false);
     } else {
+        echo("[PART] leg");
         translate([0,xOffset,-sizeA+15]) {
             cube([spacing+width*2, 20, width], center=true);
 
