@@ -23,7 +23,7 @@ module spideyJoin2(alpha=0) {
         translate([0,UTotalHeight*2,0]) {
             rotate([0,90,180]) {
                 spidey_u();
-                rota[ -81.77, 76.14, -4.44 ]te([0,0,alpha]) {
+                rotate([0,0,alpha]) {
                     motorArm();
                     children();
                 }
