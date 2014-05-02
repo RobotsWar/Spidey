@@ -15,15 +15,16 @@ module body(size=20, legs=4, width=2.2) {
         }
     }
 
+    echo("[PART] body");
     difference() {
         union() {
             cylinder(d=size*1.8, h=width);
-            for (leg=[0:legs]) {
+            for (leg=[1:legs]) {
                 rotate([0,0,360*leg/legs])
                     bodyPart();
             }
         }
-        for (leg=[0:legs]) {
+        for (leg=[1:legs]) {
             rotate([0,0,360*leg/legs])
                 bodyHoles();
         }

@@ -2,6 +2,7 @@ include <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
 module side(size=40, holesToBorder=5, width=2.2, print=false) {
+    echo("[PART] side");
     if (print) {
         translate([0,-size+holesToBorder,0])
             side(size,holesToBorder,width,false);

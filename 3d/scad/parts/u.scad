@@ -1,6 +1,7 @@
 use <../models/ollo.scad>;
 
 module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, screws=true, print=false) {
+    echo("[PART] u");
     module Ubranch() {
         union() {  
             cylinder(width, 10, 10);

@@ -43,7 +43,7 @@ module spidey(angles = [0,0,0]) {
         spidey_body();
     }
 
-    for (leg=[0:Legs]) {
+    for (leg=[1:Legs]) {
         rotate([0,0,leg*360/Legs]) {
             translate([0,BodySize-5,Width]) {
                 spideyLeg(angles[0], angles[1], angles[2]);
