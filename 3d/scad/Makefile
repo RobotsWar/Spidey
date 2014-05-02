@@ -12,7 +12,7 @@ all: $(TARGETS)
 build_dir:
 	@mkdir -p $(BUILD_DIR)
 
-$(BUILD_DIR)/%.stl: parts/%.scad build_dir
+$(BUILD_DIR)/%.stl: spidey/print/%.scad build_dir
 	@echo "Building $@..."
 	@openscad $< -o $@ 
 
