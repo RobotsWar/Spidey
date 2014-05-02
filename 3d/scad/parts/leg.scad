@@ -2,7 +2,7 @@ use <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
 module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
-        sizeTop=15, motorsPerLeg=3, fixationAngle=0, width=2.2)
+        sizeTop=15, motorsPerLeg=3, fixationAngle=0, width=2.2, print=false)
 {
     xOffset = (motorsPerLeg == 2) ? -10 : 0;
     spacing = (motorsPerLeg == 2) ? 24 : 30;
@@ -51,27 +51,34 @@ module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
             cube([Dl,20,width]);
     }
 
-    translate([0,xOffset,-sizeA+15]) {
-        cube([spacing+width*2, 20, width], center=true);
-
-        translate([spacing/2+width/2,0,0])
-            legSide();
-        translate([-(spacing/2+width/2),0,0])
-            legSide();
-
-        translate([0,0,-sizeB])
+    if (print) {
+        translate([0,0,10-xOffset])
+            rotate([90,0,0])
+            leg(sizeA, sizeB, sizeC, sizeBottom,
+                    sizeTop, motorsPerLeg, fixationAngle, width, false);
+    } else {
+        translate([0,xOffset,-sizeA+15]) {
             cube([spacing+width*2, 20, width], center=true);
-        translate([spacing/2+width/2,0,-sizeB/2])
-            cube([width,20,sizeB], center=true);
-        translate([-(spacing/2+width/2),0,-sizeB/2])
-            cube([width,20,sizeB], center=true);
 
-        translate([0,0,-(sizeB+sizeC)])
-            cube([sizeBottom+width*2, 20, width], center=true);
+            translate([spacing/2+width/2,0,0])
+                legSide();
+            translate([-(spacing/2+width/2),0,0])
+                legSide();
 
-        biais();
-        mirror([1,0,0]) {
+            translate([0,0,-sizeB])
+                cube([spacing+width*2, 20, width], center=true);
+            translate([spacing/2+width/2,0,-sizeB/2])
+                cube([width,20,sizeB], center=true);
+            translate([-(spacing/2+width/2),0,-sizeB/2])
+                cube([width,20,sizeB], center=true);
+
+            translate([0,0,-(sizeB+sizeC)])
+                cube([sizeBottom+width*2, 20, width], center=true);
+
             biais();
+            mirror([1,0,0]) {
+                biais();
+            }
         }
     }
 }

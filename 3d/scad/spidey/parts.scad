@@ -5,27 +5,27 @@ use <../parts/side.scad>;
 use <../parts/leg.scad>;
 
 module spidey_colorize() {
-	color(PartsColor)
-	children();
+    color(PartsColor)
+        children();
 }
 
-module spidey_u() {
-	spidey_colorize()
-    u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter);
+module spidey_u(print=false) {
+    spidey_colorize()
+        u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter, print=print);
 }
 
-module spidey_leg() {
-	spidey_colorize()
-	leg(LegSizeA, LegSizeB, LegSizeC, LegSizeBottom,
-		 LegSizeTop, MotorsPerLeg, L3Angle, Width);
+module spidey_leg(print=false) {
+    spidey_colorize()
+        leg(LegSizeA, LegSizeB, LegSizeC, LegSizeBottom,
+                LegSizeTop, MotorsPerLeg, L3Angle, Width, print=print);
 }
 
-module spidey_body() {
-	spidey_colorize()
-	body(BodySize, Legs, Width);
+module spidey_body(print=false) {
+    spidey_colorize()
+        body(BodySize, Legs, Width, print=print);
 }
 
-module spidey_side() {
-	spidey_colorize()
-	side(SideSize, SideHolesToBorder, Width);
+module spidey_side(print=false) {
+    spidey_colorize()
+        side(SideSize, SideHolesToBorder, Width, print=print);
 }
