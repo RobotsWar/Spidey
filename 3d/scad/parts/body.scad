@@ -5,7 +5,7 @@ module body(size=20, legs=4, width=2.2) {
     module bodyPart() {
         difference() {
             translate([-10,0,0])
-                rounded(20, size, width, 5, center=true);
+                rounded(20, size, width, 5);
         }
     }
 
@@ -30,4 +30,4 @@ module body(size=20, legs=4, width=2.2) {
     }			
 }
 
-body();
+body(size=30);
