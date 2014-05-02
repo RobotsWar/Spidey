@@ -18,12 +18,12 @@ module spideyJoin1(alpha=0) {
 }
 
 module spideyJoin2(alpha=0) {
-    translate([0,0,0]) {
+   translate([0,0,0]) {
         spidey_u();
         translate([0,UTotalHeight*2,0]) {
             rotate([0,90,180]) {
                 spidey_u();
-                rotate([0,0,alpha]) {
+                rota[ -81.77, 76.14, -4.44 ]te([0,0,alpha]) {
                     motorArm();
                     children();
                 }
@@ -44,11 +44,20 @@ module spideyJoin3(alpha=0) {
     translate([0,-2*(SideSize-SideHolesToBorder),0]) {
         rotate([0,0,180]) {
             motorArm();
-            rotate([90,90,alpha]) {
-                spidey_leg();
-            }
+				rotate([0,0,alpha])
+				children();
         }
     }
+	}
+	if (MotorsPerLeg == 2) {
+		children();
+	}
+}
+
+module spideyJoin4() {
+	if (MotorsPerLeg == 3) {
+ 		rotate([90,90,0]) 
+		spidey_leg();
 	}
 	if (MotorsPerLeg == 2) {
 		translate([0,-(24),0])
@@ -61,7 +70,9 @@ module spideyJoin3(alpha=0) {
 module spideyLeg(a, b, c) {
     spideyJoin1(a) {
         spideyJoin2(b) {
-            spideyJoin3(c);
+            spideyJoin3(c) {
+					spideyJoin4();
+				}
         }
     }
 }
