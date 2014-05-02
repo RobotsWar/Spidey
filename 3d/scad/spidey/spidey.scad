@@ -2,7 +2,7 @@ include <config.scad>;
 include <../models/ollo.scad>;
 use <../models/motor_arm.scad>;
 use <parts.scad>;
-use <joins.scad>;
+use <joints.scad>;
 
 /**
  * Angles 
