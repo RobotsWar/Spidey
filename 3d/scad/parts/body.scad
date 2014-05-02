@@ -1,34 +1,33 @@
-include <../common.scad>;
+use <../models/ollo.scad>;
+use <../util/rounded.scad>;
 
-module body() {
+module body(size=20, legs=4, width=2.2) {
     module bodyPart() {
         difference() {
             translate([-10,0,0])
-                rounded(20, BodySize, Width, 5, center);
+                rounded(20, size, width, 5, center=true);
         }
     }
 
     module bodyHoles() {
-        translate([0, BodySize-5, 0]) {
+        translate([0, size-5, 0]) {
             threeOllo();
         }
     }
 
-    color(PartsColor) {
-        difference() {
-            union() {
-                cylinder(d=BodySize*1.8, h=Width);
-                for (leg=[0:Legs]) {
-                    rotate([0,0,360*leg/Legs])
-                        bodyPart();
-                }
+    difference() {
+        union() {
+            cylinder(d=size*1.8, h=width);
+            for (leg=[0:legs]) {
+                rotate([0,0,360*leg/legs])
+                    bodyPart();
             }
-            for (leg=[0:Legs]) {
-                rotate([0,0,360*leg/Legs])
-                    bodyHoles();
-            }
-        }			
-    }
+        }
+        for (leg=[0:legs]) {
+            rotate([0,0,360*leg/legs])
+                bodyHoles();
+        }
+    }			
 }
 
 body();

@@ -1,77 +1,77 @@
-include <../common.scad>;
+use <../models/ollo.scad>;
+use <../util/rounded.scad>;
 
-LegXOffset = (MotorsPerLeg == 2) ? -10 : 0;
-LegWidth = (MotorsPerLeg == 2) ? 24 : 30;
-
-module leg()
+module leg(sizeA=60, sizeB=20, sizeC=20, sizeBottom=10,
+        sizeTop=15, motorsPerLeg=3, fixationAngle=0, width=2.2)
 {
+    xOffset = (motorsPerLeg == 2) ? -10 : 0;
+    spacing = (motorsPerLeg == 2) ? 24 : 30;
+
     module legSide()
     {
         difference() {
             union() {
-                translate([0,0,LegSizeA/2])
+                translate([0,0,sizeA/2])
                     rotate([0,90,0]) {
-                        cube([LegSizeA, 20, Width], center=true);
-                        if (MotorsPerLeg == 2) {
-                            translate([15-LegSizeA/2, 10, -Width/2])
-                                rotate([0,0,+L3Angle])
-                                rounded(25,10,Width, center=true);
+                        cube([sizeA, 20, width], center=true);
+                        if (motorsPerLeg == 2) {
+                            translate([15-sizeA/2, 10, -width/2])
+                                rotate([0,0,+fixationAngle])
+                                rounded(25,10,width, center=true);
                         }
                     }
             }
-            translate([-Width, 0, LegSizeA-15]) {
+            translate([-width, 0, sizeA-15]) {
                 rotate([90,0,90]) {
-                    if (MotorsPerLeg == 3) {
-                        servoArm(2*Width);
+                    if (motorsPerLeg == 3) {
+                        servoArm(2*width);
                     }
                 }
-                if (MotorsPerLeg == 2) {
+                if (motorsPerLeg == 2) {
                     translate([0,10,0])
-                        rotate([90,90-L3Angle,90])
-                        threeOllo(2*Width);
+                        rotate([90,90-fixationAngle,90])
+                        threeOllo(2*width);
                 }
             }
         }
-        translate([-Width/2,0,LegSizeA]) {
+        translate([-width/2,0,sizeA]) {
             rotate([90,0,90])
-                linear_extrude(Width)
-                polygon([[-10,0],[-1,LegSizeTop],[1,LegSizeTop],[10,0]]);
+                linear_extrude(width)
+                polygon([[-10,0],[-1,sizeTop],[1,sizeTop],[10,0]]);
         }
     }
 
     module biais() {
-        Dx = (LegWidth-LegSizeBottom)/2;
-        Dy = LegSizeC;
+        Dx = (spacing-sizeBottom)/2;
+        Dy = sizeC;
         Dl = sqrt(pow(Dx,2)+pow(Dy,2));
 
-        translate([-(LegWidth/2)-Width,-10,-(LegSizeB+Width/2)])
+        translate([-(spacing/2)-width,-10,-(sizeB+width/2)])
             rotate([0,atan2(Dy,Dx),0])
-            cube([Dl,20,Width]);
+            cube([Dl,20,width]);
     }
 
-    color(PartsColor) {
-        translate([0,LegXOffset,-LegSizeA+15]) {
-            cube([LegWidth+Width*2, 20, Width], center=true);
+    translate([0,xOffset,-sizeA+15]) {
+        cube([spacing+width*2, 20, width], center=true);
 
-            translate([LegWidth/2+Width/2,0,0])
-                legSide();
-            translate([-(LegWidth/2+Width/2),0,0])
-                legSide();
+        translate([spacing/2+width/2,0,0])
+            legSide();
+        translate([-(spacing/2+width/2),0,0])
+            legSide();
 
-            translate([0,0,-LegSizeB])
-                cube([LegWidth+Width*2, 20, Width], center=true);
-            translate([LegWidth/2+Width/2,0,-LegSizeB/2])
-                cube([Width,20,LegSizeB], center=true);
-            translate([-(LegWidth/2+Width/2),0,-LegSizeB/2])
-                cube([Width,20,LegSizeB], center=true);
+        translate([0,0,-sizeB])
+            cube([spacing+width*2, 20, width], center=true);
+        translate([spacing/2+width/2,0,-sizeB/2])
+            cube([width,20,sizeB], center=true);
+        translate([-(spacing/2+width/2),0,-sizeB/2])
+            cube([width,20,sizeB], center=true);
 
-            translate([0,0,-(LegSizeB+LegSizeC)])
-                cube([LegSizeBottom+Width*2, 20, Width], center=true);
+        translate([0,0,-(sizeB+sizeC)])
+            cube([sizeBottom+width*2, 20, width], center=true);
 
+        biais();
+        mirror([1,0,0]) {
             biais();
-            mirror([1,0,0]) {
-                biais();
-            }
         }
     }
 }

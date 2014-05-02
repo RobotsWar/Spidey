@@ -1,15 +1,14 @@
-include <../common.scad>;
+include <../models/ollo.scad>;
+use <../util/rounded.scad>;
 
-module side() {
-    translate([0,SideSize-SideHolesToBorder,0]) {
-        color(PartsColor) {
-            difference() {
-                rounded(20, SideSize*2, Width, 5, true);
-                for (y=[SideSize-SideHolesToBorder,	 -SideSize+SideHolesToBorder,
-                        SideSize-SideHolesToBorder-3*OlloSpacing, -SideSize+SideHolesToBorder+3*OlloSpacing]) {
-                    translate([0, y, 0])
-                        threeOllo();
-                }
+module side(size=40, holesToBorder=5, width=2.2) {
+    translate([0,size-holesToBorder,0]) {
+        difference() {
+            rounded(20, size*2, width, 5, true);
+            for (y=[size-holesToBorder,	 -size+holesToBorder,
+                    size-holesToBorder-3*OlloSpacing, -size+holesToBorder+3*OlloSpacing]) {
+                translate([0, y, 0])
+                    threeOllo();
             }
         }
     }

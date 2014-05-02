@@ -1,5 +1,5 @@
 include <../common.scad>;
-use <motor.scad>;
+include <motor.scad>;
 use <arm.scad>;
 
 module motorArm() {

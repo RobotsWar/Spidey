@@ -1,11 +1,11 @@
-include <../common.scad>;
+use <../models/ollo.scad>;
 
-module u() {
+module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, screws=true) {
     module Ubranch() {
         union() {  
-            cylinder(Width, 10, 10);
+            cylinder(width, 10, 10);
             translate([-10,0,0])
-                cube([20, UHeight, Width]);
+                cube([20, height, width]);
         }
     }
 
@@ -13,17 +13,17 @@ module u() {
         difference() {
             union() {
                 Ubranch();
-                translate([-10,UHeight+URadius-Width,URadius])
-                    cube([20,Width,15-(URadius-Width)]);
-                translate([-10,UHeight,URadius]) {
+                translate([-10,height+radius-width,radius])
+                    cube([20,width,15-(radius-width)]);
+                translate([-10,height,radius]) {
                     rotate([0,90,0]) {
                         difference() {
-                            cylinder(20,URadius,URadius);
+                            cylinder(20,radius,radius);
                             translate([0,0,-1])
-                                cylinder(22,URadius-Width,URadius-Width);
-                            translate([-10+URadius-Width,-10,-1])
+                                cylinder(22,radius-width,radius-width);
+                            translate([-10+radius-width,-10,-1])
                                 cube([10,10,22]);
-                            translate([-10,-20+URadius-Width,-1])
+                            translate([-10,-20+radius-width,-1])
                                 cube([10,20.01,22]);
                         }
                     }
@@ -33,25 +33,25 @@ module u() {
         }
     }
 
-	 module UScrews() {
-		for (x=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
-			for (y=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
-			  rotate([270,0,0])
-			  translate([x,y,0])
-			  cylinder(d=UScrewsDiameter, h=100);
-			}
-      }
-	 }
+    module UScrews() {
+        for (x=[-screwsSpacing/2,screwsSpacing/2]) {
+            for (y=[-screwsSpacing/2,screwsSpacing/2]) {
+                rotate([270,0,0])
+                    translate([x,y,0])
+                    cylinder(d=screwsDiameter, h=100);
+            }
+        }
+    }
 
-    color(PartsColor) {
-		  difference() {
-          translate([0,0,-15-Width]) {
+    difference() {
+        translate([0,0,-15-width]) {
             USide();
-            mirror([0,0,1]) translate([0,0,-2*Width-30])  
+            mirror([0,0,1]) translate([0,0,-2*width-30])  
                 USide();
-          }
-			 UScrews();
-		  }
+        }
+        if (screws) {
+            UScrews();
+        }
     }
 }
 
