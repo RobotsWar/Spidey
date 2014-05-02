@@ -18,18 +18,6 @@ module motor_on_body(alpha=0) {
     }
 }
 
-module arm_leg() {
-  rotate([90,90,0]) 
-  spidey_leg();
-}
-
-module bottom_leg() {
-  translate([0,-(24),0])
-  rotate([180,0,0])
-  rotate([180,90,L3Angle])
-  spidey_leg();
-}
-
 module spideyLeg(a, b, c) {
 	if (MotorsPerLeg == 3) {
     motor_on_body(a) {
