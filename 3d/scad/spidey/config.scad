@@ -44,7 +44,7 @@ UScrewsSpacing = 10;
 UScrewsDiameter= 2.6;
 
 // Side dimensions
-SideSize = 38;
+SideSize = 27;
 SideHolesToBorder = 5;
 
 // Defining the resolution
