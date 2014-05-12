@@ -1,4 +1,4 @@
-# Open-source DIY parametric robot
+# Spidey: Open-source DIY parametric robot
 
 ![Spidey](docs/imgs/spidey.jpg)
 
