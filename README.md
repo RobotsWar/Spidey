@@ -2,11 +2,9 @@
 
 ![Spidey](docs/imgs/spidey.jpg)
 
-## Demo video: https://www.youtube.com/watch?v=Mj_5xJRZnC0
+## [Demo video »](https://www.youtube.com/watch?v=Mj_5xJRZnC0)
 
-## Make your own!
-
-[Go to the documentation to begin! »](docs/index.md)
+## [Make your own »](docs/index.md)
 
 ## License
 
