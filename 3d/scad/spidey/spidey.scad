@@ -23,7 +23,7 @@ module spideyLeg(a, b, c) {
     motor_on_body(a) {
         spidey_double_u(b) {
             spidey_side_to_side(c) {
-					arm_leg();
+					spidey_arm_leg();
 				}
         }
     }	
@@ -31,7 +31,7 @@ module spideyLeg(a, b, c) {
 	if (MotorsPerLeg == 2) {
     motor_on_body(a) {
         spidey_double_u(b) {
-				bottom_leg();
+				spidey_bottom_leg();
         }
     }	
 	}

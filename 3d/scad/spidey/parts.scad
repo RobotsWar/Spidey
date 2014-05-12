@@ -17,7 +17,7 @@ module spidey_u(print=false) {
 module spidey_leg(print=false) {
     spidey_colorize()
         leg(LegSizeA, LegSizeB, LegSizeC, LegSizeBottom,
-                LegSizeTop, MotorsPerLeg, L3Angle, Width, print=print);
+                LegSizeTop, (MotorsPerLeg == 2 ? "side" : "arm"), L3Angle, Width, print=print);
 }
 
 module spidey_body(print=false) {
