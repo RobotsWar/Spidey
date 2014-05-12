@@ -4,6 +4,8 @@
 
 ## Using OpenSCAD
 
+![OpenSCAD editor](imgs/openscad.jpg)
+
 [OpenSCAD](http://www.openscad.org/) is a free, lightweight and open-source software.
 You can download it from the [officiel site](http://www.openscad.org/downloads.html).
 
