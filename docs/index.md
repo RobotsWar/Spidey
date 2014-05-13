@@ -20,7 +20,7 @@ You can then assemble your robot, follow the [assemble tutorial](assemble.md).
 
 ### 4) Hacking & tweaking
 
-If you want to get more information about how the firmware works, have a look
-to the [hacking](hacking.md).
+If you want to customize your robot and change it at some point, have a look
+to the [hacking](hacking.md) documentation.
 
 ### 5) Enjoy!

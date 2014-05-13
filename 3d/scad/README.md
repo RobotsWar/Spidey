@@ -2,4 +2,4 @@
 
 This contains OpenSCAD version of the parts.
 
-**It has not been tested yet**
+Have a look to the [3D hacking](../../docs/hacking_3d.md) for more information.
