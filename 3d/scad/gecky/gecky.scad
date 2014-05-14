@@ -14,7 +14,7 @@ module gecky_legfoot() {
 }
 
 module gecky_leg_part() {
-	translate([0,TailBodySize+MotorHeight/2,MotorDepth/2+Width]) {
+	translate([0,TailBodySizeSide+MotorHeight/2,MotorDepth/2+Width]) {
 		motorArm();
 			double_u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter)
 				translate([0,-MotorHeight+MotorArmOffset+OlloWidth,0])
@@ -40,18 +40,18 @@ module gecky(angles=[0,0,0]) {
 	rotate(180) 
 	gecky_leg_part();
 	rotate(-90)
-		translate([0,TailBodySize+MotorHeight/2,MotorDepth/2+Width]) {
+		translate([0,TailBodySizeLength+MotorHeight/2+1,MotorDepth/2+Width]) {
 			motorArm();
-			double_u(BodyULength, URadius, Width, UScrewsSpacing, UScrewsDiameter);
+			double_u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter);
 		}
 
-	gecky_tail_body(sizeSide=TailBodySize, angleTail=TailAngle, 
-		lengthTail=TailLength, widthTail=TailWidth, width=Width);
+	gecky_tail_body(sizeSide=TailBodySizeSide, sizeLength=TailBodySizeLength, 
+		angleTail=TailAngle, lengthTail=TailLength, widthTail=TailWidth, width=Width);
 	translate([0,0,MotorDepth+Width])
-		gecky_tail_body(sizeSide=TailBodySize, angleTail=TailAngle, 
-			lengthTail=TailLength, widthTail=TailWidth, width=Width);
+		gecky_tail_body(sizeSide=TailBodySizeSide, sizeLength=TailBodySizeLength, 
+			angleTail=TailAngle, lengthTail=TailLength, widthTail=TailWidth, width=Width);
 	
-	translate([2*(MotorHeight-MotorArmOffset)+2*BodyULength,0,0])
+	translate([TailBodySizeLength+MotorHeight-2*MotorArmOffset+2*UHeight+2*URadius+1,0,0])
 	union() {
 		gecky_head_body(widthSize=HeadBodySize, width=Width) {
 			gecky_arm_part(false);

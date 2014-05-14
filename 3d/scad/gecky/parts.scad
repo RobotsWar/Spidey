@@ -1,4 +1,4 @@
- include <config.scad>;
+include <config.scad>;
 include <../models/ollo.scad>;
 use <../models/motor.scad>;
 use <../models/arm.scad>;
@@ -7,22 +7,22 @@ use <../models/motor_arm.scad>;
 use <../util/rounded.scad>;
 use <../util/thickLine.scad>;
 
-module gecky_tail_body(sizeSide=30, angleTail=45, lengthTail=40, widthTail=10, width=2.2) {
-	module bodySegment() {
+module gecky_tail_body(sizeSide=20, sizeLength=20, angleTail=45, lengthTail=40, widthTail=10, width=2.2) {
+	module bodySegment(size) {
 		rotate(-90)
 		difference() {
 			translate([-10,0,0])
-				rounded(20, sizeSide, width, 5);
-			translate([0,sizeSide-5,0])
+				rounded(20, size, width, 5);
+			translate([0,size-5,0])
 			threeOllo();
 		}
 	}
 
-	bodySegment();
+	bodySegment(sizeLength);
 	rotate(-90)
-		bodySegment();
+		bodySegment(sizeSide);
 	rotate(90)
-		bodySegment();
+		bodySegment(sizeSide);
 	translate([-15,-5,0])
 		cube([10,10,width]);
 	
@@ -32,8 +32,8 @@ module gecky_tail_body(sizeSide=30, angleTail=45, lengthTail=40, widthTail=10, w
 		[-10-cos(angleTail)*lengthTail,sin(angleTail)*lengthTail], widthTail, width);
 }
 
-module gecky_leg(length=60, height=20, widthSizeBegin=20, widthSizeEnd=15, width=2.2) {
-	size1 = 10;
+module gecky_leg(length=60, height=20, widthSizeBegin=20, widthSizeEnd=15, width=2.2, print=false) {
+	size1 = 15;
 	module part() {
 		difference() {
 			translate([-5,0,-height/2])
@@ -55,41 +55,53 @@ module gecky_leg(length=60, height=20, widthSizeBegin=20, widthSizeEnd=15, width
 		}
 	}
 	
-	rotate(90, [1,0,0])
-	union() {
-		part();
-		mirror([0,1,0])
-			part();
-		translate([length-5,0,0])
-			children();
-	}
-}
-
-module gecky_foot(height=50, width=2.2, depth=4, widthSizeTop=15, widthSizeEnd=5) {
-	rotate(180, [1,0,0]) rotate(90, [0,0,1])
-	translate([0,0,-UScrewsSpacing])
-	difference() {
+	if (print) {
+		translate([-size1,0,height/2]) rotate(90, [1,0,0])
+			gecky_leg(length=length, height=height, widthSizeBegin=widthSizeBegin, 
+				widthSizeEnd=widthSizeEnd, width=width, print=false);
+	} else {
+		rotate(90, [1,0,0])
 		union() {
-			cylinder(h=height, r=widthSizeTop/2, r2=widthSizeEnd/2);
-			translate([0,0,height])
-				sphere(widthSizeEnd/2);
-			translate([-widthSizeTop/2,-width,0])
-				cube([widthSizeTop,width,2*UScrewsSpacing]);
+			part();
+			mirror([0,1,0])
+				part();
+			translate([length-5,0,0])
+				children();
 		}
-		translate([-50, 0, -5])
-			cube(100);
-		translate([-50, -100-depth, -5])
-			cube(100);
-		for (x=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
-      	for (y=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
-				translate([x,10,y+UScrewsSpacing]) rotate(90, [1,0,0])
-         		cylinder(d=UScrewsDiameter, h=20);
-         }
-     	}
 	}
 }
 
-module gecky_head_body(widthSize=5, width=2.2) {
+module gecky_foot(height=50, width=2.2, depth=4, widthSizeTop=15, widthSizeEnd=5, print=false) {
+	if (print) {
+		rotate(-90, [0,1,0])
+			gecky_foot(height=height, width=width, depth=depth, 
+				widthSizeTop=widthSizeTop, widthSizeEnd=widthSizeEnd, print=false);
+	} else {
+		rotate(180, [1,0,0]) rotate(90, [0,0,1])
+		translate([0,0,-UScrewsSpacing])
+		difference() {
+			union() {
+				cylinder(h=height, r=widthSizeTop/2, r2=widthSizeEnd/2);
+				translate([0,0,height])
+					sphere(widthSizeEnd/2);
+				translate([-widthSizeTop/2,-width,0])
+					cube([widthSizeTop,width,2*UScrewsSpacing]);
+			}
+			translate([-50, 0, -5])
+				cube(100);
+			translate([-50, -100-depth, -5])
+				cube(100);
+			for (x=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
+      		for (y=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
+					translate([x,10,y+UScrewsSpacing]) rotate(90, [1,0,0])
+         			cylinder(d=UScrewsDiameter, h=20);
+         	}
+     		}
+		}
+	}
+}
+
+module gecky_head_body(widthSize=5, width=2.2, print=false) {
 	module part() {
 		difference() {
 			translate([0,-MotorWidth/2,0])
@@ -101,8 +113,7 @@ module gecky_head_body(widthSize=5, width=2.2) {
 		}
 	}
 
-	translate([-5,0,0])
-	union() {
+	module multipart() {
 		part();
 		translate([2*MotorHeight,-MotorWidth/2-widthSize/2,0]) rotate(180)
 			part();
@@ -113,8 +124,17 @@ module gecky_head_body(widthSize=5, width=2.2) {
 		translate([MotorHeight/2+15,-1.5*widthSize/2,0])
 			cube([MotorHeight, 1.5*widthSize, width]);
 	}
+	
+	if (print) {
+		translate([-MotorHeight,0,0])
+			multipart();
+	} else {
+		translate([-5,0,0])
+			multipart();
+	}
 
-	if ($children > 0) {
+
+	if (print == false && $children > 0) {
 		translate([2*MotorHeight-10,widthSize/2+MotorWidth/2,width]) 
 			rotate(90, [0,1,0]) rotate(90, [1,0,0]) 
       		children(0);
@@ -124,15 +144,19 @@ module gecky_head_body(widthSize=5, width=2.2) {
 	}
 }
 
-module gecky_head_u(width=2.2) {
-	rotate(-90, [1,0,0]) translate([0,-UHeight-URadius,0]) rotate(90, [0,1,0])
-	union() {
-		difference() {
-			u(height=UHeight, radius=URadius, width=width, screws=false, widthSize=MotorWidth/2);	
-			rotate(-90, [1,0,0])
-				servoArm(30);
+module gecky_head_u(width=2.2, print=false) {
+	if (print) {
+		u(height=UHeight, radius=URadius, width=width, screws=false, 
+			olloScrew=true, widthSize=MotorWidth/2, print=true);
+	} else {
+		rotate(-90, [1,0,0]) translate([0,-UHeight-URadius,0]) rotate(90, [0,1,0])
+		union() {
+			difference() {
+				u(height=UHeight, radius=URadius, width=width, screws=false, 
+					olloScrew=true, widthSize=MotorWidth/2);
+			}
+			rotate(180, [1,0,0])
+				children();
 		}
-		rotate(180, [1,0,0])
-			children();
 	}
 }
