@@ -13,10 +13,10 @@ module gecky_legfoot() {
 module gecky_leg_part() {
 	translate([0,TailBodySizeSide+MotorHeight/2,MotorDepth/2+Width]) {
 		motorArm();
-			gecky_double_u()
-				translate([0,-MotorHeight+MotorArmOffset+OlloWidth,0])
-					rotate(-90, [0,0,1])	
-						gecky_legfoot();
+		gecky_double_u()
+			translate([0,-MotorHeight+MotorArmOffset+OlloWidth,0])
+				rotate(-90, [0,0,1])	
+					gecky_legfoot();
 	}
 }
 
