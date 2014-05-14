@@ -2,6 +2,7 @@ include <config.scad>;
 include <../models/ollo.scad>;
 use <models.scad>;
 use <../joints/double_u.scad>;
+use <../parts/u.scad>;
 
 module gecky_tail_body(print=false) {
 	gecky_model_tail_body(sizeSide=TailBodySizeSide, sizeLength=TailBodySizeLength, 
@@ -30,7 +31,12 @@ module gecky_u(print=false) {
 		children();
 }
 module gecky_double_u(print=false) {
-	double_u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter, print=print)
-		children();
+	if (print) {
+		u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter, print=print);
+	} else {
+		double_u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter, print=print)
+			children();
+	}
 }
 
+gecky_double_u(print=true);

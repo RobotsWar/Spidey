@@ -1,4 +1,3 @@
-include <../common.scad>;
 include <motor.scad>;
 use <arm.scad>;
 
