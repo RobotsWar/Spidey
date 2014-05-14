@@ -1,6 +1,6 @@
 use <../models/ollo.scad>;
 
-module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, screws=true, widthSize=15, print=false) {
+module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, screws=true, olloScrew=false, widthSize=15, print=false) {
     module Ubranch() {
         union() {  
             cylinder(width, 10, 10);
@@ -43,10 +43,16 @@ module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, s
         }
     }
 
+	module UOllo() {
+		rotate(-90, [1,0,0])
+			servoArm(2*height);
+	}
+
     if (print) {
         translate([0,0,10])
             rotate([0,90,0])
-            u(height,radius,width,screwsSpacing,screwsDiameter,screws,false);
+            u(height,radius,width,screwsSpacing,screwsDiameter,
+                screws,olloScrew,widthSize,false);
     } else {
         echo("[PART] u");
         difference() {
@@ -57,6 +63,9 @@ module u(height=15, radius=8, width=2.2, screwsSpacing=10, screwsDiameter=2.6, s
             }
             if (screws) {
                 UScrews();
+            }
+            if (olloScrew) {
+                UOllo();
             }
         }
     }
