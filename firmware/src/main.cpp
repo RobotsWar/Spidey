@@ -125,7 +125,7 @@ float l3[4];
  */
 void setup()
 {
-    RC.begin(921600);
+    RC.begin(9600);
 
     back = (initialOrientation != 0);
     if (back) smoothBack = 1;
@@ -199,9 +199,9 @@ void tick()
         // Computing the order in the referencial of the leg
         float bodyAngle = -(i*M_PI/2.0 - (M_PI/4.0))*smoothBack;
         if (group) {
-            bodyAngle -= DEG2RAD(crab);
+            bodyAngle -= DEG2RAD(crab*(-smoothBack));
         } else {
-            bodyAngle += DEG2RAD(crab);
+            bodyAngle += DEG2RAD(crab*(-smoothBack));
         }
         float vx = xOrder*cos(bodyAngle)-yOrder*sin(bodyAngle);
         float vy = xOrder*sin(bodyAngle)+yOrder*cos(bodyAngle);
@@ -216,9 +216,9 @@ void tick()
         // Computing inverse kinematics
         if (computeIK(x, y, z, &a, &b, &c, L1, L2, backLegs ? L3_2 : L3_1)) {
             if (group) {
-                a += crab;
+                a += crab*(-smoothBack);
             } else {
-                a -= crab;
+                a -= crab*(-smoothBack);
             }
 
             l1[i] = signs[0]*smoothBack*(a + step.getMod(legPhase)*turn);
