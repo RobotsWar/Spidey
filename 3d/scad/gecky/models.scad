@@ -93,8 +93,11 @@ module gecky_model_foot(height=50, width=2.2, depth=4, widthSizeTop=15, widthSiz
 				cube(100);
 			for (x=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
       		for (y=[-UScrewsSpacing/2,UScrewsSpacing/2]) {
-					translate([x,10,y+UScrewsSpacing]) rotate(90, [1,0,0])
+					translate([x,10,y+UScrewsSpacing]) rotate(90, [1,0,0]) {
          			cylinder(d=UScrewsDiameter, h=20);
+						translate([0,0,10+depth-depth+1+0.1])
+							cylinder(d=UScrewsDiameter*2, h=depth-1);
+					}
          	}
      		}
 		}

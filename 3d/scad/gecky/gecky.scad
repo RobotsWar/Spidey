@@ -10,17 +10,18 @@ module gecky_legfoot() {
 		gecky_foot();
 }
 
-module gecky_leg_part() {
+module gecky_leg_part(alpha=0) {
 	translate([0,TailBodySizeSide+MotorHeight/2,MotorDepth/2+Width]) {
 		motorArm();
-		gecky_double_u()
-			translate([0,-MotorHeight+MotorArmOffset+OlloWidth,0])
-				rotate(-90, [0,0,1])	
-					gecky_legfoot();
+		rotate(alpha, [0,0,1])
+			gecky_double_u()
+				translate([0,-MotorHeight+MotorArmOffset+OlloWidth,0])
+					rotate(-90, [0,0,1])	
+						gecky_legfoot();
 	}
 }
 
-module gecky_arm_part(right=true) {
+module gecky_arm_part(right=true, alpha=0) {
 	theta = right ? 180 : 0;
 	translate([-MotorDepth/2,0,0]) {
 		motorArm();
@@ -28,14 +29,14 @@ module gecky_arm_part(right=true) {
 			rotate(90, [0,0,1]) rotate(180, [1,0,0])
 				gecky_u()
 					rotate(90, [0,1,0]) translate([0,-MotorHeight/2-2,-MotorDepth/2-Width])
-						gecky_leg_part();
+						gecky_leg_part(alpha);
 	}
 }
 
-module gecky() {
-	gecky_leg_part();
+module gecky(alpha1, alpha2, alpha3, alpha4) {
+	gecky_leg_part(alpha1);
 	rotate(180) 
-	gecky_leg_part();
+	gecky_leg_part(alpha2);
 	rotate(-90)
 		translate([0,TailBodySizeLength+MotorHeight/2+1,MotorDepth/2+Width]) {
 			motorArm();
@@ -49,12 +50,12 @@ module gecky() {
 	translate([TailBodySizeLength+MotorHeight-2*MotorArmOffset+2*UHeight+2*URadius+1,0,0])
 	union() {
 		gecky_head_body() {
-			gecky_arm_part(false);
-			gecky_arm_part(true);
+			gecky_arm_part(false, alpha3);
+			gecky_arm_part(true, alpha4);
 		}
 		translate([0,0,MotorDepth+Width])
 			gecky_head_body();
 	}
 }
 
-gecky();
+gecky(-50, 0, 60, 0);

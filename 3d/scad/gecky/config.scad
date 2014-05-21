@@ -17,9 +17,9 @@ UScrewsSpacing = 10;
 UScrewsDiameter= 2.6;
 
 //Gecky parts parameters
-LegLength = 50;
-FootHeight = 50;
-FootRadius = 8;
+LegLength = 30;
+FootHeight = 55;
+FootRadius = 10;
 TailBodySizeSide = 20;
 TailBodySizeLength = 50;
 TailAngle = 55;

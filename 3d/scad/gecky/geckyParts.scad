@@ -106,17 +106,18 @@ module gecky_part13() {
 		gecky_part12();
 }
 
-gecky_part1();
-gecky_part2();
-gecky_part3();
-gecky_part4();
-gecky_part5();
-gecky_part6();
-gecky_part7();
-gecky_part8();
-gecky_part9();
-gecky_part10();
-gecky_part11();
-gecky_part12();
-gecky_part13();
+p = 0;
+if (p == 1) gecky_part1();
+if (p == 2) gecky_part2();
+if (p == 3) gecky_part3();
+if (p == 4) gecky_part4();
+if (p == 5) gecky_part5();
+if (p == 6) gecky_part6();
+if (p == 7) gecky_part7();
+if (p == 8) gecky_part8();
+if (p == 9) gecky_part9();
+if (p == 10) gecky_part10();
+if (p == 11) gecky_part11();
+if (p == 12) gecky_part12();
+if (p == 13) gecky_part13();
 
