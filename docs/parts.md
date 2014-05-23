@@ -44,7 +44,7 @@ bind your OpenCM to the body:
 
 ### 12 x XL-320
 
-This is not yet available on the market
+http://www.robotis-shop-en.com/shop/step1.php?number=1132
 
 ## Bindings
 
