@@ -35,6 +35,7 @@ csg:
 
 plates: $(BUILD_DIR)/plater.conf
 	@echo "Running plater, plate size: $(PLATE_W)x$(PLATE_H)"
+	rm build/plate_*
 	plater -v -W $(PLATE_W) -H $(PLATE_H) -s 1.8 -R 1 $<
 
 $(BUILD_DIR)/plater.conf: spidey/config.scad parts.py
