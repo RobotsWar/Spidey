@@ -26,13 +26,13 @@
  * third motor arm, and between the third motor arm and the
  * end of the leg.
  *
- *
- *              b
- *         l1 /   \ l2
- *          /       c
- *  body-a          | l3
- *                  -
- *                  (x, y, z) end of the leg
+ *                  c
+ *              l2 / \
+ *               /    \ l3
+ * body-a--l1--b       \
+ *                      \
+ *                      -
+     *                  (x, y, z) end of the leg
  *
  */
 bool computeIK(float x, float y, float z,
