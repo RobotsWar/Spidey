@@ -4,6 +4,9 @@
 
 /**
  * Solves the al Kashi problem
+ *
+ * This gives the angles of a triangle side, knowing
+ * all the lengths of its sides.
  */
 float alKashi(float a, float b, float c)
 {
@@ -17,18 +20,26 @@ bool computeIK(float x, float y, float z,
         float *a, float *b, float *c,
         float l1, float l2, float l3)
 {
+    // Alpha is simply the angle of the leg in the X/Y plane
     float alpha = atan2(y, x);
+
+    // Distance between end of the leg and arm of the first motor,
+    // in the X/Y plane
     float xp = x*cos(alpha)-sin(alpha)*y;
 
     if (xp < l1) {
         xp = l1;
     }
 
+    // Distance between second motor arm and the end of the leg,
+    // in the plane of the leg
     float d = sqrt(pow(xp-l1,2) + pow(z,2));
     if (d > l2+l3) {
         d = l2+l3;
     }
 
+    // Knowing l2, l3 and d beta and gamma can be computed using
+    // the Al Kashi law
     float beta = alKashi(l2, d, l3) - atan2(-z, xp);
     float gamma = M_PI - alKashi(l2, l3, d);
     
