@@ -18,13 +18,13 @@ bool computeIK(float x, float y, float z,
         float l1, float l2, float l3)
 {
     float alpha = atan2(y, x);
-    float xp = x*cos(alpha)-sin(alpha)*y;
+    float xp = x*cos(alpha)-sin(alpha)*y-l1;
 
-    if (xp < l1) {
-        xp = l1;
+    if (xp < 0) {
+        xp = 0;
     }
 
-    float d = sqrt(pow(xp-l1,2) + pow(z,2));
+    float d = sqrt(pow(xp,2) + pow(z,2));
     if (d > l2+l3) {
         d = l2+l3;
     }
