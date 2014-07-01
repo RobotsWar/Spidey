@@ -2,7 +2,7 @@
 
 ![Spidey](docs/imgs/spidey.jpg)
 
-## [Demo video »](https://www.youtube.com/watch?v=Mj_5xJRZnC0)
+## [Demo video »](https://www.youtube.com/watch?v=7McQQ-uikZw)
 
 ## [Make your own »](docs/index.md)
 
