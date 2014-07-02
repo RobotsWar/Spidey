@@ -23,17 +23,16 @@ bool computeIK(float x, float y, float z,
     // Alpha is simply the angle of the leg in the X/Y plane
     float alpha = atan2(y, x);
 
-    // Distance between end of the leg and arm of the first motor,
+    // Distance between end of the leg and arm of the second motor,
     // in the X/Y plane
-    float xp = x*cos(alpha)-sin(alpha)*y;
-
-    if (xp < l1) {
-        xp = l1;
+    float xp = sqrt(x*x+y*y)-l1;
+    if (xp < 0) {
+        xp = 0;
     }
 
     // Distance between second motor arm and the end of the leg,
     // in the plane of the leg
-    float d = sqrt(pow(xp-l1,2) + pow(z,2));
+    float d = sqrt(pow(xp,2) + pow(z,2));
     if (d > l2+l3) {
         d = l2+l3;
     }
@@ -42,7 +41,7 @@ bool computeIK(float x, float y, float z,
     // the Al Kashi law
     float beta = alKashi(l2, d, l3) - atan2(-z, xp);
     float gamma = M_PI - alKashi(l2, l3, d);
-    
+
     if (!isnan(alpha) && !isnan(beta) && !isnan(gamma)) {
         *a = RAD2DEG(alpha);
         *b = RAD2DEG(beta);
