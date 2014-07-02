@@ -1,6 +1,6 @@
 # Hacking the 3D parts
 
-[« back to the hacking documentation](hacking_3d.md)
+[« back to the hacking documentation](hacking.md)
 
 ## Using OpenSCAD
 
