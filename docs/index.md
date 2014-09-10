@@ -24,3 +24,7 @@ If you want to customize your robot and change it at some point, have a look
 to the [hacking](hacking.md) documentation.
 
 ### 5) Enjoy!
+
+## Troubleshooting
+
+* [I can not communicate with one of my servos, why?](servos_missing.md)
