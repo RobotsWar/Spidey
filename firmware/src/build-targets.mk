@@ -6,6 +6,7 @@ OBJ_FILES = $(addprefix $(BUILD_PATH)/,$(SRC_FILES:.cpp=.o))
 
 # Uncomment to disable robot campus commands
 CFLAGS += -DDISABLE_SERVOS_COMMANDS
+# CFLAGS += -DDXL_VERSION_1
 
 $(BUILD_PATH)/%.o: %.cpp
 	$(SILENT_CXX) $(CXX) $(CFLAGS) $(CXXFLAGS) $(LIBMAPLE_INCLUDES) $(WIRISH_INCLUDES) -o $@ -c $< 
