@@ -25,6 +25,8 @@ to the [hacking](hacking.md) documentation.
 
 ### 5) Enjoy!
 
+You can now [send motion](motion.md) orders to your robot!
+
 ## Troubleshooting
 
 * [I can not communicate with one of my servos, why?](servos_missing.md)
