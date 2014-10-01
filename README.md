@@ -4,7 +4,7 @@
 
 ## [Demo video »](https://www.youtube.com/watch?v=7McQQ-uikZw)
 
-## [Make your own »](docs/index.md)
+## [Make your own (Documentation) »](docs/index.md)
 
 ## License
 
