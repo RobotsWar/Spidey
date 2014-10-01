@@ -44,13 +44,13 @@ bind your OpenCM to the body:
 
 ### 12 x XL-320
 
-http://www.robotis-shop-en.com/shop/step1.php?number=1132
+http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1611
 
 ## Bindings
 
 ### 3 x Ollo rivet boxes
 
-http://www.robotis-shop-en.com/shop/step1.php?number=1126
+www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1605
 
 ### Screws & nuts
 
@@ -63,19 +63,19 @@ http://fr.farnell.com/jsp/search/productdetail.jsp?SKU=1419445
 
 You may need an ollo tool to work with ollo rivet
 
-http://www.robotis-shop-en.com/shop/step1.php?number=1123
+http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1602
 
 ### Pulleys
 
 You'll need 12 pulleys, you can buy 3x5=15:
 
-http://robotis-shop-en.com/shop/step1.php?number=1111&b_code=B20140110010004
+http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1590
 
 ## Electronic
 
-### Main board: OpenCM9.04-B
+### Main board: OpenCM9.04-C
 
-http://www.robotis-shop-en.com/shop/step1.php?number=1008
+http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=2394
 
 ## Battery
 
