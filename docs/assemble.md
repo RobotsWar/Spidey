@@ -15,7 +15,9 @@ avoid changing the software, you have to respect the motors direction and IDs**
 
 Before begining, pay attention to the motors IDs and orientations:
 
-![IDs and orientation](imgs/ids.jpg)
+![IDs](imgs/ids.jpg)
+
+![Orientation](imgs/orientation.jpg)
 
 ## 1) Bind the Us
 
