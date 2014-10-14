@@ -4,14 +4,14 @@
 
 void initCom()
 {
-  Serial1.read();
+  Serial1.begin(COM_BAUD);
 }
 
 void comTick()
 {
   while (Serial1.available()) {
     char c = Serial1.read();
-    if (Serial) Serial.write(c);
+    // if (Serial) Serial.write(c);
   } 
   
   // Forwarding (Debug)
