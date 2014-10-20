@@ -36,7 +36,7 @@ MotorDepth = 24;
 MotorArmOffset = 9;
 
 // U dimensions
-UHeight = 14;
+UHeight = 15.2;
 URadius = 8;
 UWidth = 30+Width/2;
 UTotalHeight = UHeight+URadius;
