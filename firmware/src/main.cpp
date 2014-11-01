@@ -131,6 +131,7 @@ void setup()
     if (back) smoothBack = 1;
 
     // Initializing the DXL bus
+    delay(500);
     dxl_init();
 
     // Initializing mapping
