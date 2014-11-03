@@ -51,10 +51,6 @@ TERMINAL_COMMAND(remap,
     remap(atoi(argv[0]));
 }
 
-// Front/Back gains
-TERMINAL_PARAMETER_FLOAT(backGain, "BackGain", 1.0);
-TERMINAL_PARAMETER_FLOAT(frontGain, "BackGain", 1.0);
-
 // Legs bacakward mode
 TERMINAL_PARAMETER_BOOL(backLegs, "Legs backwards", false);
 
@@ -71,7 +67,7 @@ TERMINAL_PARAMETER_FLOAT(t, "Time", 0.0);
 TERMINAL_PARAMETER_FLOAT(freq, "Time factor gain", 2.0);
 
 // Amplitude & altitude of the robot
-TERMINAL_PARAMETER_FLOAT(alt, "Height of the steps", 14.0);
+TERMINAL_PARAMETER_FLOAT(alt, "Height of the steps", 15.0);
 
 // Static position
 TERMINAL_PARAMETER_FLOAT(r, "Robot size", 80.0);
@@ -85,9 +81,17 @@ TERMINAL_PARAMETER_FLOAT(crab, "Crab", 0.0);
 // Turning, in ° per step
 TERMINAL_PARAMETER_FLOAT(turn, "Turn", 0.0);
 
+// Front delta h
+TERMINAL_PARAMETER_FLOAT(frontH, "Front delta H", 0.0);
+
 TERMINAL_PARAMETER_FLOAT(Ax, "Ax", 0.0);
 TERMINAL_PARAMETER_FLOAT(Ay, "Ay", 0.0);
 TERMINAL_PARAMETER_FLOAT(Az, "Az", 0.0);
+
+// Gait selector
+#define GAIT_WALK       0
+#define GAIT_TROT       1
+TERMINAL_PARAMETER_INT(gait, "Gait (0:walk, 1:trot)", GAIT_TROT);
 
 // Functions
 Function rise;
@@ -98,18 +102,39 @@ Function step;
  */
 void setup_functions()
 {
-    // Rising the legs
-    rise.addPoint(0.0, 0.0);
-    rise.addPoint(0.1, 1.0);
-    rise.addPoint(0.4, 1.0);
-    rise.addPoint(0.5, 0.0);
-    rise.addPoint(1.0, 0.0);
+    rise.clear();
+    step.clear();
+    
+    if (gait == GAIT_WALK) {
+        // Rising the legs
+        rise.addPoint(0.0, 0.0);
+        rise.addPoint(0.1, 1.0);
+        rise.addPoint(0.3, 1.0);
+        rise.addPoint(0.35, 0.0);
+        rise.addPoint(1.0, 0.0);
 
-    // Taking the leg forward
-    step.addPoint(0.0, -0.5);
-    step.addPoint(0.1, -0.5);
-    step.addPoint(0.4, 0.5);
-    step.addPoint(1.0, -0.5);
+        // Taking the leg forward
+        step.addPoint(0.0, -0.5);
+        step.addPoint(0.12, -0.5);
+        step.addPoint(0.3, 0.5);
+        step.addPoint(0.35, 0.5);
+        step.addPoint(1.0, -0.5);
+    }
+
+    if (gait == GAIT_TROT) {
+        // Rising the legs
+        rise.addPoint(0.0, 0.0);
+        rise.addPoint(0.1, 1.0);
+        rise.addPoint(0.4, 1.0);
+        rise.addPoint(0.5, 0.0);
+        rise.addPoint(1.0, 0.0);
+
+        // Taking the leg forward
+        step.addPoint(0.0, -0.5);
+        step.addPoint(0.1, -0.5);
+        step.addPoint(0.4, 0.5);
+        step.addPoint(1.0, -0.5);
+    }
 }
 
 TERMINAL_PARAMETER_FLOAT(kkk, "", 0.0);
@@ -125,7 +150,7 @@ float l3[4];
  */
 void setup()
 {
-    RC.begin(9600);
+    RC.begin(921600);
 
     back = (initialOrientation != 0);
     if (back) smoothBack = 1;
@@ -136,9 +161,6 @@ void setup()
 
     // Initializing mapping
     remap(0);
-
-    // Setting up functions
-    setup_functions();
 
     // Initializing config (see config.h)
     config_init();
@@ -157,6 +179,9 @@ void setup()
  */
 void tick()
 {
+    // Setting up functions
+    setup_functions();
+
     if (!move || !started) {
         t = 0.0;
         return;
@@ -189,7 +214,15 @@ void tick()
         bool group = ((i&1)==1);
 
         // This defines the phase of the gait
-        float legPhase = t + group*0.5;
+        float legPhase;
+       
+        if (gait == GAIT_WALK) {
+            float phases[] = {0.0, 0.5, 0.75, 0.25};
+            legPhase = t + phases[i];
+        }
+        if (gait == GAIT_TROT) {
+            legPhase = t + group*0.5;
+        }
 
         float x, y, z, a, b, c;
 
@@ -213,6 +246,7 @@ void tick()
         x = r + vx;
         y = vy;
         z = h + rise.getMod(legPhase)*alt*enableRise;
+        if (i < 2) z += frontH;
     
         // Computing inverse kinematics
         if (computeIK(x, y, z, &a, &b, &c, L1, L2, backLegs ? L3_2 : L3_1)) {
