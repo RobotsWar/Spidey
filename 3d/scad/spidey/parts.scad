@@ -41,6 +41,6 @@ module spidey_side(print=false) {
 
 module spidey_batfix(print=false) {
 	spidey_colorize()
-	batfix()
-	spidey_body_screws();
+    	batfix(print=print)
+        	spidey_body_screws();
 }
