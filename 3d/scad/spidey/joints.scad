@@ -15,7 +15,6 @@ module spidey_side_to_side(alpha=0) {
     }
 }
 
-
 module spidey_arm_leg() {
     color(PartsColor) {
         arm_leg(LegSizeA, LegSizeB, LegSizeC, LegSizeBottom,

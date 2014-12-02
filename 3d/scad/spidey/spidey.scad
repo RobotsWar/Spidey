@@ -1,4 +1,5 @@
 include <config.scad>;
+use <../util/screws.scad>;
 include <../models/ollo.scad>;
 use <../models/motor_arm.scad>;
 use <parts.scad>;
@@ -7,7 +8,7 @@ use <joints.scad>;
 /**
  * Angles 
  */
-angles = [0, -30, 110];
+angles = [0, -30, -110];
 
 module motor_on_body(alpha=0) {
     translate([0, 4*OlloSpacing, MotorDepth/2]) {
@@ -40,7 +41,8 @@ module spideyLeg(a, b, c) {
 module spidey(angles = [0,0,0]) {
     spidey_body();
     translate([0,0,MotorDepth+Thickness]) {
-        spidey_body();
+        spidey_body()
+	    screws();
     }
 
     for (leg=[1:Legs]) {

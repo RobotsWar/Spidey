@@ -22,7 +22,8 @@ module spidey_leg(print=false) {
 
 module spidey_body(print=false) {
     spidey_colorize()
-        body(BodySize, Legs, Thickness, print=print);
+        body(BodySize, Legs, Thickness, print=print)
+		children();
 }
 
 module spidey_side(print=false) {
