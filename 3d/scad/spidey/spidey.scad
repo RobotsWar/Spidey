@@ -41,8 +41,10 @@ module spideyLeg(a, b, c) {
 module spidey(angles = [0,0,0]) {
     spidey_body();
     translate([0,0,MotorDepth+Thickness]) {
-        spidey_body()
-    	    screws(BodyScrews, BodyScrewsRadius, BodyScrewsSize, Thickness);
+        spidey_body(top=true);
+	translate([0,0,2*Thickness]) {
+		spidey_batfix();
+	}
     }
 
     for (leg=[1:Legs]) {
