@@ -29,6 +29,11 @@ LegSizeBottom = 10;
 // Size of the "top" part of the legs, in mm
 LegSizeTop = 30;
 
+// Body screws
+BodyScrews = 4;
+BodyScrewsRadius = 6;
+BodyScrewsSize = 3.3;
+
 // Motor dimensions
 MotorWidth = 24;
 MotorHeight = 36;

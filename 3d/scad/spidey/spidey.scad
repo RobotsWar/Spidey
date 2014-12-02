@@ -42,7 +42,7 @@ module spidey(angles = [0,0,0]) {
     spidey_body();
     translate([0,0,MotorDepth+Thickness]) {
         spidey_body()
-	    screws();
+    	    screws(BodyScrews, BodyScrewsRadius, BodyScrewsSize, Thickness);
     }
 
     for (leg=[1:Legs]) {
