@@ -13,8 +13,8 @@ L3Angle = -5;
 // Color of the parts, for rendering
 PartsColor = [0.8, 0.8, 0.8];
 
-// Width of parts (2.2 is good for Ollo rivets)
-Width = 2.2;
+// Thickness of parts (2.2 is good for Ollo rivets)
+Thickness = 2.2;
 
 // Sizes of the parts of the leg
 // Ratio of leg parts
@@ -38,7 +38,7 @@ MotorArmOffset = 9;
 // U dimensions
 UHeight = 15.2;
 URadius = 8;
-UWidth = 30+Width/2;
+UWidth = 30+Thickness/2;
 UTotalHeight = UHeight+URadius;
 UScrewsSpacing = 10;
 UScrewsDiameter= 2.6;

@@ -39,13 +39,13 @@ module spideyLeg(a, b, c) {
 
 module spidey(angles = [0,0,0]) {
     spidey_body();
-    translate([0,0,MotorDepth+Width]) {
+    translate([0,0,MotorDepth+Thickness]) {
         spidey_body();
     }
 
     for (leg=[1:Legs]) {
         rotate([0,0,leg*360/Legs]) {
-            translate([0,BodySize-5,Width]) {
+            translate([0,BodySize-5,Thickness]) {
                 spideyLeg(angles[0], angles[1], angles[2]);
             }
         }

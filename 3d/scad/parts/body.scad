@@ -1,10 +1,10 @@
 use <../models/ollo.scad>;
 use <../util/rounded.scad>;
 
-module body(size=20, legs=4, width=2.2) {
+module body(size=20, legs=4, thickness=2.2) {
     module bodyPart() {
         translate([-10,0,0])
-            rounded(20, size, width, 5);
+            rounded(20, size, thickness, 5);
     }
 
     module bodyHoles() {
@@ -16,7 +16,7 @@ module body(size=20, legs=4, width=2.2) {
     echo("[PART] body");
     difference() {
         union() {
-            cylinder(d=size*1.8, h=width);
+            cylinder(d=size*1.8, h=thickness);
             for (leg=[1:legs]) {
                 rotate([0,0,360*leg/legs])
                     bodyPart();

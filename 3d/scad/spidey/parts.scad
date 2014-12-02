@@ -11,21 +11,21 @@ module spidey_colorize() {
 
 module spidey_u(print=false) {
     spidey_colorize()
-        u(UHeight, URadius, Width, UScrewsSpacing, UScrewsDiameter, print=print);
+        u(UHeight, URadius, Thickness, UScrewsSpacing, UScrewsDiameter, print=print);
 }
 
 module spidey_leg(print=false) {
     spidey_colorize()
         leg(LegSizeA, LegSizeB, LegSizeC, LegSizeBottom,
-                LegSizeTop, (MotorsPerLeg == 2 ? "side" : "arm"), L3Angle, Width, print=print);
+                LegSizeTop, (MotorsPerLeg == 2 ? "side" : "arm"), L3Angle, Thickness, print=print);
 }
 
 module spidey_body(print=false) {
     spidey_colorize()
-        body(BodySize, Legs, Width, print=print);
+        body(BodySize, Legs, Thickness, print=print);
 }
 
 module spidey_side(print=false) {
     spidey_colorize()
-        side(SideSize, SideHolesToBorder, Width, print=print);
+        side(SideSize, SideHolesToBorder, Thickness, print=print);
 }
