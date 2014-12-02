@@ -9,7 +9,7 @@ module double_u(height=15, radius=8, thickness=2.2, screwsSpacing=10, screwsDiam
             rotate([0,90,180]) {
                 color(col)
                     u(height, radius, thickness, screwsSpacing, screwsDiameter, screws);
-                rotate([0,0,alpha]) {
+                rotate([0,180,alpha]) {
                     motorArm();
                     children();
                 }
