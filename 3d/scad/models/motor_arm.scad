@@ -6,7 +6,7 @@ module motorArm() {
   translate([0,0,MotorDepth/2])
     arm();
   translate([0,0,-MotorDepth/2-OlloWidth])
-    arm();	
+    arm(true);	
 }
 
 motorArm();
