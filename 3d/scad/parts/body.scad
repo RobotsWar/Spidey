@@ -26,7 +26,6 @@ module body(size=20, legs=4, thickness=2.2) {
             rotate([0,0,360*leg/legs])
                 bodyHoles();
         }
+	children();
     }			
 }
-
-body(size=30);
