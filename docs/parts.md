@@ -89,6 +89,7 @@ http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=2394
 We recommend using the ROBOTIS Li-ion:
 
 2x http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1608
+
 2x http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1609
 
 ## Bluetooth module
