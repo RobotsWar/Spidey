@@ -59,7 +59,7 @@ http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1573
 
 ### Ollo tool
 
-You may need an ollo tool to work with ollo rivet
+You may need an ollo tool to work with ollo rivet:
 
 http://www.robotis-shop-en.com/?act=shop_en.goods_view&GS=1602
 
